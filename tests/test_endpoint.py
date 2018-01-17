@@ -4,8 +4,8 @@ import unittest
 import numpy as np
 
 from wildcat.network.endpoint import Endpoint
-from wildcat.solver.base_solver import QuboSolver
-from tests.test_util import random_symmetric_matrix
+from wildcat.solver.qubo_solver import QuboSolver
+from wildcat.util.matrix import random_symmetric_matrix
 
 
 class TestCase(unittest.TestCase):
