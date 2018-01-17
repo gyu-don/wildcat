@@ -1,0 +1,48 @@
+import json
+import numpy as np
+
+from requests_futures.sessions import FuturesSession
+
+from wildcat.util.json_encoder import CompactEncoder
+
+
+class Endpoint:
+    def __init__(self, host=None):
+        self.host = host or self.default_host()
+        self.session = FuturesSession()
+
+    @classmethod
+    def default_host(self):
+        return "http://api.mdrft.com"
+
+    @classmethod
+    def ising_solver_path(self):
+        return "/apiv1/ising"
+
+    def dispatch(self, solver, path=None, callback=None):
+        path = path or self.ising_solver_path()
+        if not (solver.qubo.shape[0] == 0):
+            mat = self._build_matrix_for_params(solver.qubo)
+            params = {'qubo': mat}
+        elif not (solver.ising_interactions.shape[0] == 0):
+            mat = self._build_matrix_for_params(solver.ising_interactions)
+            params = {'hami': mat}
+        else:
+            raise ValueError('No valid qubo nor ising interactions in the solver.')
+
+        def handle_result(sess, resp):
+            if not (callback is None):
+                callback(np.array(resp.json()))
+            None
+        request = self.session.post(url=self.host + path, headers={'Content-Type': 'application/json'},
+                                    data=json.dumps(params, separators=(',', ':'), cls=CompactEncoder),
+                                    background_callback=handle_result)
+        return request
+
+    def _build_matrix_for_params(self, matrix, strip=False):
+        n = matrix.shape[0]
+        list = matrix.tolist()
+        if strip:
+            for i in range(n):
+                list[i] = list[i][i:]
+        return list
