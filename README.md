@@ -40,7 +40,7 @@ solver = IsingHamiltonianSolver(ising_interactions=Jij)
 def callback(arrangement):
     print(arrangement)
 
-solver.solve(callback=callback)
+solver.solve(callback)
 ```
 
 
