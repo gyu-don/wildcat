@@ -24,6 +24,3 @@ class BaseSolver:
         for i in range(self.ising_interactions.shape[0]):
             self.ising_interactions[i][i] = - (self.qubo[i].sum() + self.qubo.sum(axis=0)[i]) / 4.0
 
-
-QuboSolver = BaseSolver
-HamiltonianSolver = BaseSolver
