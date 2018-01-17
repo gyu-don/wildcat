@@ -33,6 +33,8 @@ Example
 To find an optimal arrangement:
 ```python
 from wildcat.util.matrix import random_symmetric_matrix
+from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
+
      
 Jij = random_symmetric_matrix()
 solver = IsingHamiltonianSolver(ising_interactions=Jij)
