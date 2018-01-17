@@ -30,4 +30,18 @@ TBD
 Example
 -------
 
-TBD
+To find an optimal arrangement:
+```python
+from wildcat.util.matrix import random_symmetric_matrix
+     
+Jij = random_symmetric_matrix()
+solver = IsingHamiltonianSolver(ising_interactions=Jij)
+
+def callback(arrangement):
+    print(arrangement)
+
+solver.solve(callback=callback)
+```
+
+
+
