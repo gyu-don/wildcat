@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/skonb/wildcat_qdk.svg?branch=feature%2Ftravis_ci)](https://travis-ci.org/skonb/wildcat_qdk)
+
 Wildcat Python SDK
 ===============================
 
