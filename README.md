@@ -1,4 +1,4 @@
-QNN Python SDK
+Wildcat Python SDK
 ===============================
 
 version number: 0.0.1
