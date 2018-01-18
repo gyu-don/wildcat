@@ -31,10 +31,9 @@ class TestCase(unittest.TestCase):
         solver.solve(callback)
 
     def test_solver_solve_callback_called(self):
-        solver = QuboSolver()
-        solver.qubo = random_symmetric_matrix(size=20)
-
+        solver = QuboSolver(qubo=random_symmetric_matrix(size=20))
         def callback(result):
+            print(result)
             assert not (result is None)
             assert len(result) == solver.qubo.shape[0]
 

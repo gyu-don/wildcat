@@ -10,6 +10,11 @@ class BaseSolver:
         self.endpoint = Endpoint()
 
     def solve(self, callback, endpoint=None):
+        if self.ising_interactions.shape[0] == 0:
+            self.qubo()
+        if self.qubo.shape[0] == 0:
+            self.build_ising_interactions()
+
         self.endpoint = endpoint or self.endpoint
         return self.endpoint.dispatch(solver=self, path=Endpoint.ising_solver_path(), callback=callback)
 
