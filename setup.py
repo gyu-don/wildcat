@@ -18,13 +18,13 @@ install_requires = [x.strip() for x in all_reqs if 'git+' not in x]
 dependency_links = [x.strip().replace('git+', '') for x in all_reqs if x.startswith('git+')]
 
 setup(
-    name='wildcat_qdk',
+    name='wildcat',
     version=__version__,
     description='Wildcat Python SDK to Use Annealers',
     long_description=long_description,
     url='https://github.com/mdrft/wildcat_qdk',
     download_url='https://github.com/mdrft/wildcat_qdk/tarball/' + __version__,
-    license='BSD',
+    license='MIT',
     classifiers=[
       'Development Status :: 3 - Alpha',
       'Intended Audience :: Developers',

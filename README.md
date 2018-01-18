@@ -1,4 +1,4 @@
-QNN Python SDK
+Wildcat Python SDK
 ===============================
 
 version number: 0.0.1
@@ -14,7 +14,7 @@ Installation / Usage
 
 To install use pip:
 
-    $ pip install wildcat_qdk
+    $ pip install wildcat
 
 
 Or clone the repo:
