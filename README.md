@@ -38,7 +38,7 @@ from wildcat.util.matrix import random_symmetric_matrix
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
 
      
-Jij = random_symmetric_matrix()
+Jij = random_symmetric_matrix(size=40)
 solver = IsingHamiltonianSolver(ising_interactions=Jij)
 
 def callback(arrangement):

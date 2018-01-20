@@ -39,7 +39,6 @@ def test_qubo_solver_ising_qubo_ising_reconstructs_original():
     solver.build_qubo()
     solver.build_ising_interactions()
     reconstructed_ising = solver.ising_interactions
-    print(ising - reconstructed_ising)
     assert np.allclose(ising, reconstructed_ising)
 
 

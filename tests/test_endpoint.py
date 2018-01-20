@@ -28,12 +28,12 @@ class TestCase(unittest.TestCase):
         solver = QuboSolver()
         solver.ising_interactions = random_symmetric_matrix()
         callback = lambda result: None
+        solver.build_qubo()
         solver.solve(callback)
 
     def test_solver_solve_callback_called(self):
-        solver = QuboSolver(qubo=random_symmetric_matrix(size=20))
+        solver = QuboSolver(qubo=random_symmetric_matrix(size=1000))
         def callback(result):
-            print(result)
             assert not (result is None)
             assert len(result) == solver.qubo.shape[0]
 
