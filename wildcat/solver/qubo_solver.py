@@ -8,3 +8,5 @@ class QuboSolver(BaseSolver):
             self.qubo = qubo
         self.build_ising_interactions()
 
+    def adjust_solutions_from_ising_spins(self, solutions):
+        return (solutions + 1) / 2

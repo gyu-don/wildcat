@@ -34,7 +34,7 @@ class Endpoint:
                     print("Server responded: {}".format(resp.content))
                     callback([])
                 else:
-                    callback(np.array(resp.json()))
+                    callback(solver.adjust_solutions_from_ising_spins(np.array(resp.json())))
 
         request = self.session.post(url=self.host + path, headers={'Content-Type': 'application/json'},
                                     data=json.dumps(params, separators=(',', ':'), cls=CompactEncoder),
