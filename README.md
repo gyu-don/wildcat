@@ -1,10 +1,9 @@
-class LocalEndpoint(object):
-    pass[![Build Status](https://travis-ci.org/skonb/wildcat_qdk.svg?branch=feature%2Ftravis_ci)](https://travis-ci.org/skonb/wildcat_qdk)
+[![Build Status](https://travis-ci.org/skonb/wildcat_qdk.svg?branch=feature%2Ftravis_ci)](https://travis-ci.org/skonb/wildcat_qdk)
 
 Wildcat Python SDK
 ===============================
 
-version number: 0.0.7
+version number: 0.0.8
 author: Shumpei Kobayashi
 
 Overview
