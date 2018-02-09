@@ -1,17 +1,17 @@
 import numpy as np
 
-from wildcat.util.matrix import check_symmetric, symmetrize, energy, zero_one_to_spin, spin_to_zero_one
+from wildcat.util.matrix import check_symmetric, symmetrize, zero_one_to_spin, spin_to_zero_one, quadratic_form
 
 
 def test_symmetric():
     assert check_symmetric(symmetrize(np.random.rand(100, 100)))
 
 
-def test_energy():
+def test_quadratic_form():
     matrix = symmetrize(np.random.rand(100, 100));
     binary_vector = (np.random.uniform(0, 1, 100) > .5).astype(int)
-    e = energy(binary_vector, matrix)
-    assert(e > 0)
+    e = quadratic_form(binary_vector, matrix)
+    assert (e > 0)
 
 
 def test_binary_to_spin_transform():

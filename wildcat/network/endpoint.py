@@ -8,20 +8,15 @@ from wildcat.util.json_encoder import CompactEncoder
 
 class Endpoint:
     def __init__(self, host=None):
-        self.host = host or self.default_host()
+        self.host = host or self.default_host
         self.session = FuturesSession()
         self.request_precision = 3
 
-    @classmethod
-    def default_host(self):
-        return "http://api.mdrft.com"
+    default_host = "http://api.mdrft.com"
+    ising_solver_path = "/apiv1/ising"
 
-    @classmethod
-    def ising_solver_path(self):
-        return "/apiv1/ising"
-
-    def dispatch(self, solver, path=None, callback=None):
-        path = path or self.ising_solver_path()
+    def dispatch(self, solver, path=ising_solver_path, callback=None):
+        path = path or self.ising_solver_path
         if not (solver.ising_interactions.shape[0] == 0):
             mat = self._build_matrix_for_params(solver.ising_interactions)
             params = {'hami': np.round(mat, self.request_precision).tolist()}

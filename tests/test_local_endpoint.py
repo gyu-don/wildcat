@@ -3,24 +3,24 @@ import unittest
 
 import numpy as np
 
-from wildcat.network.endpoint import Endpoint
+from wildcat.network.local_endpoint import LocalEndpoint
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
 from wildcat.solver.qubo_solver import QuboSolver
-from wildcat.util.matrix import random_symmetric_matrix
+from wildcat.util.matrix import random_symmetric_matrix, spin_to_zero_one
 
 
 class TestCase(unittest.TestCase):
 
     def test_endpoint_initialize(self):
-        endpoint = Endpoint()
+        endpoint = LocalEndpoint()
 
     def test_dispatch_to_endpoint_without_data_raises(self):
-        endpoint = Endpoint()
+        endpoint = LocalEndpoint()
         solver = QuboSolver()
         self.assertRaises(ValueError, endpoint.dispatch, solver)
 
     def test_dispatch_success(self):
-        endpoint = Endpoint()
+        endpoint = LocalEndpoint()
         solver = QuboSolver()
         solver.ising_interactions = random_symmetric_matrix()
         endpoint.dispatch(solver)
@@ -36,31 +36,18 @@ class TestCase(unittest.TestCase):
         solver = QuboSolver(qubo=random_symmetric_matrix())
 
         def callback(result):
+            print(result)
             assert not (result is None)
             assert len(result) == solver.qubo.shape[0]
 
-        future = solver.solve(callback)
+
+        def iterative_callback(q):
+            print(solver.qubo_energy(spin_to_zero_one(q)))
+            pass
+
+        future = solver.solve(callback, endpoint=LocalEndpoint(iterative_callback=iterative_callback))
         # future = solver.solve(callback,endpoint=Endpoint(host="http://localhost:3001"))
         response = future.result()
-        self.assertEqual(response.status_code, 200)
-
-    def test_solver_params(self):
-        solver = QuboSolver()
-        solver.ising_interactions = random_symmetric_matrix()
-        j = json.dumps(solver.endpoint._build_matrix_for_params(solver.ising_interactions))
-        self.assertIsNotNone(j)
-        array = np.array(json.loads(j))
-        self.assertTrue(np.allclose(solver.ising_interactions, array))
-
-    def test_solver_strip_params(self):
-        solver = QuboSolver()
-        solver.ising_interactions = random_symmetric_matrix()
-        j = json.dumps(solver.endpoint._build_matrix_for_params(solver.ising_interactions, strip=True))
-        self.assertIsNotNone(j)
-        list = json.loads(j)
-        for i in range(solver.ising_interactions.shape[0]):
-            for j in range(len(list[i])):
-                self.assertAlmostEqual(list[i][j], solver.ising_interactions[i][i + j])
 
     def test_can_calculate_hamiltonian_energy(self):
         solver = IsingHamiltonianSolver(ising_interactions=random_symmetric_matrix())
