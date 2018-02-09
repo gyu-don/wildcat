@@ -1,5 +1,3 @@
-import numpy as np
-
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
 from wildcat.solver.qubo_solver import QuboSolver
 from wildcat.util.matrix import random_symmetric_matrix

@@ -1,6 +1,7 @@
 import numpy as np
 
 from wildcat.network.endpoint import Endpoint
+from wildcat.util.matrix import energy
 
 
 class BaseSolver:
@@ -29,6 +30,11 @@ class BaseSolver:
         for i in range(self.ising_interactions.shape[0]):
             self.ising_interactions[i][i] = - (self.qubo[i].sum() + self.qubo.sum(axis=0)[i]) / 4.0
 
-
     def adjust_solutions_from_ising_spins(self, solutions):
         return solutions
+
+    def hamiltonian_energy(self, vector):
+        return energy(vector, self.ising_interactions)
+
+    def qubo_energy(self, vector):
+        return energy(vector, self.qubo)

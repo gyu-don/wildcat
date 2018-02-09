@@ -48,3 +48,4 @@ def test_qubo_solver():
     solver.qubo = np.ones([100, 100])
     solver.build_ising_interactions()
     assert solver.ising_interactions.shape == (100, 100)
+

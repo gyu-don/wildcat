@@ -4,6 +4,7 @@ import unittest
 import numpy as np
 
 from wildcat.network.endpoint import Endpoint
+from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
 from wildcat.solver.qubo_solver import QuboSolver
 from wildcat.util.matrix import random_symmetric_matrix
 
@@ -33,6 +34,7 @@ class TestCase(unittest.TestCase):
 
     def test_solver_solve_callback_called(self):
         solver = QuboSolver(qubo=random_symmetric_matrix())
+
         def callback(result):
             assert not (result is None)
             assert len(result) == solver.qubo.shape[0]
@@ -59,3 +61,23 @@ class TestCase(unittest.TestCase):
         for i in range(solver.ising_interactions.shape[0]):
             for j in range(len(list[i])):
                 self.assertAlmostEqual(list[i][j], solver.ising_interactions[i][i + j])
+
+    def test_can_calculate_hamiltonian_energy(self):
+        solver = IsingHamiltonianSolver(ising_interactions=random_symmetric_matrix())
+
+        def callback(result):
+            e = solver.hamiltonian_energy(result)
+            assert (e > 0)
+
+        future = solver.solve(callback)
+        response = future.result()
+
+    def test_can_calculate_qubo_energy(self):
+        solver = QuboSolver(qubo=random_symmetric_matrix())
+
+        def callback(result):
+            e = solver.qubo_energy(result)
+            assert (e < 0)
+
+        future = solver.solve(callback)
+        response = future.result()

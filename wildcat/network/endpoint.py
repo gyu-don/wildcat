@@ -39,6 +39,7 @@ class Endpoint:
         request = self.session.post(url=self.host + path, headers={'Content-Type': 'application/json'},
                                     data=json.dumps(params, separators=(',', ':'), cls=CompactEncoder),
                                     background_callback=handle_result)
+
         return request
 
     def _build_matrix_for_params(self, matrix, strip=False):

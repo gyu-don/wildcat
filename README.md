@@ -42,7 +42,9 @@ Jij = random_symmetric_matrix(size=40)
 solver = IsingHamiltonianSolver(ising_interactions=Jij)
 
 def callback(arrangement):
-    print(arrangement)
+    e = solver.hamiltonian_energy(arrangement)
+    print("Energy: ", e)
+    print("Spins: ", arrangement)
 
 solver.solve(callback)
 ```
