@@ -4,9 +4,8 @@ from wildcat.annealer.simulated.simulated_annealer import SimulatedAnnealer
 
 
 class LocalEndpoint:
-    def __init__(self, annealer=SimulatedAnnealer(), iterative_callback=None):
+    def __init__(self, annealer=SimulatedAnnealer()):
         self.annealer = annealer
-        self.annealer.callback = iterative_callback
         pass
 
     def anneal(self, solver, callback):

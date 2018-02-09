@@ -2,19 +2,17 @@ import numpy as np
 
 from wildcat.annealer.simulated.single_spin_flip_strategy import SingleSpinFlipStrategy
 from wildcat.annealer.simulated.temperature_schedule import TemperatureSchedule
-from wildcat.util.matrix import symmetrize, quadratic_energy
+from wildcat.util.matrix import symmetrize
 
 
 class SimulatedAnnealer:
-    def __init__(self, schedule=None, strategy=SingleSpinFlipStrategy(), repetition=2000, callback=None):
+    def __init__(self, schedule=None, strategy=SingleSpinFlipStrategy()):
         self.temperature_schedule = schedule or TemperatureSchedule()
         self.q = np.zeros(0)
-        self.repetition = repetition
         self.strategy = strategy
         self.dim = None
         self.J = None
         self.h = None
-        self.callback = callback
 
     def anneal(self, hamiltonian):
         self.initialize_annealing(hamiltonian)

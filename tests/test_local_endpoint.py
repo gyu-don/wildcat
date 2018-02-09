@@ -1,7 +1,4 @@
-import json
 import unittest
-
-import numpy as np
 
 from wildcat.network.local_endpoint import LocalEndpoint
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
@@ -45,7 +42,7 @@ class TestCase(unittest.TestCase):
             print(solver.qubo_energy(spin_to_zero_one(q)))
             pass
 
-        future = solver.solve(callback, endpoint=LocalEndpoint(iterative_callback=iterative_callback))
+        future = solver.solve(callback, endpoint=LocalEndpoint())
         # future = solver.solve(callback,endpoint=Endpoint(host="http://localhost:3001"))
         response = future.result()
 

@@ -3,8 +3,9 @@ import numpy as np
 
 class SingleSpinFlipStrategy:
 
-    def __init__(self, repetition=2000):
+    def __init__(self, repetition=2000, update_callback=None):
         self.repetition = repetition
+        self.update_callback = update_callback
         pass
 
     def update(self, annealer, T):
@@ -13,5 +14,5 @@ class SingleSpinFlipStrategy:
             dE = 2 * (annealer.h[k] + annealer.J[k].dot(annealer.q)) * annealer.q[k]
             if dE < 0 or np.exp(- dE / T) > np.random.uniform(0, 1):
                 annealer.q[k] *= -1
-                if not (annealer.callback is None):
-                   annealer.callback(annealer.q)
+                if not (self.update_callback is None):
+                   self.update_callback(annealer.q)
