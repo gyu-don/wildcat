@@ -15,7 +15,6 @@ def test_qubo_solver_initialization_with_qubo():
     assert np.array_equal(solver.qubo, np.ones([100, 100]))
 
 
-
 def test_qubo_solver_ising_interactions_from_qubo_is_symmetric():
     solver = BaseSolver()
     qubo = random_symmetric_matrix()
@@ -24,6 +23,7 @@ def test_qubo_solver_ising_interactions_from_qubo_is_symmetric():
     ising = solver.ising_interactions.copy()
     assert check_symmetric(ising)
 
+
 def test_qubo_solver_qubo_from_ising_interactions_is_symmetric():
     solver = BaseSolver()
     ising = random_symmetric_matrix()
@@ -31,6 +31,7 @@ def test_qubo_solver_qubo_from_ising_interactions_is_symmetric():
     solver.build_qubo()
     qubo = solver.qubo.copy()
     assert check_symmetric(qubo)
+
 
 def test_qubo_solver_ising_qubo_ising_reconstructs_original():
     solver = BaseSolver()
@@ -42,10 +43,8 @@ def test_qubo_solver_ising_qubo_ising_reconstructs_original():
     assert np.allclose(ising, reconstructed_ising)
 
 
-
 def test_qubo_solver():
     solver = BaseSolver()
     solver.qubo = np.ones([100, 100])
     solver.build_ising_interactions()
     assert solver.ising_interactions.shape == (100, 100)
-
