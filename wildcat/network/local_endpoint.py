@@ -18,5 +18,5 @@ class LocalEndpoint:
         if solver.ising_interactions.shape[0] == 0:
             raise ValueError('No valid qubo nor ising interactions in the solver.')
 
-        with ThreadPoolExecutor() as executor:
+        with ThreadPoolExecutor(max_workers=1) as executor:
             return executor.submit(self.anneal, solver, callback)
