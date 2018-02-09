@@ -16,3 +16,5 @@ script:
   - pytest # or py.test for Python versions 3.5 and below
 notifications:
   email: false
+
+env: PYTHONPATH=$PYTHONPATH:$TRAVIS_BUILD_DIR/tests:$TRAVIS_BUILD_DIR/wildcat

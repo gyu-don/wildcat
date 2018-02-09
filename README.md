@@ -1,7 +1,9 @@
+[![Build Status](https://travis-ci.org/skonb/wildcat_qdk.svg?branch=feature%2Ftravis_ci)](https://travis-ci.org/skonb/wildcat_qdk)
+
 Wildcat Python SDK
 ===============================
 
-version number: 0.0.1
+version number: 0.0.7
 author: Shumpei Kobayashi
 
 Overview
@@ -36,11 +38,13 @@ from wildcat.util.matrix import random_symmetric_matrix
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
 
      
-Jij = random_symmetric_matrix()
+Jij = random_symmetric_matrix(size=40)
 solver = IsingHamiltonianSolver(ising_interactions=Jij)
 
 def callback(arrangement):
-    print(arrangement)
+    e = solver.hamiltonian_energy(arrangement)
+    print("Energy: ", e)
+    print("Spins: ", arrangement)
 
 solver.solve(callback)
 ```
