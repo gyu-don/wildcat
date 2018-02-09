@@ -1,12 +1,14 @@
 import numpy as np
 
+from wildcat.annealer.base_annealer import BaseAnnealer
 from wildcat.annealer.simulated.single_spin_flip_strategy import SingleSpinFlipStrategy
 from wildcat.annealer.simulated.temperature_schedule import TemperatureSchedule
 from wildcat.util.matrix import symmetrize
 
 
-class SimulatedAnnealer:
+class SimulatedAnnealer(BaseAnnealer):
     def __init__(self, schedule=None, strategy=SingleSpinFlipStrategy()):
+        super().__init__()
         self.temperature_schedule = schedule or TemperatureSchedule()
         self.q = np.zeros(0)
         self.strategy = strategy

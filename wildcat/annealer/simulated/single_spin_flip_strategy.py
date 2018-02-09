@@ -1,9 +1,12 @@
 import numpy as np
 
+from wildcat.annealer.simulated.base_simulated_annealing_strategy import BaseSimulatedAnnealingStrategy
 
-class SingleSpinFlipStrategy:
+
+class SingleSpinFlipStrategy(BaseSimulatedAnnealingStrategy):
 
     def __init__(self, repetition=2000, update_callback=None):
+        super().__init__()
         self.repetition = repetition
         self.update_callback = update_callback
         pass
