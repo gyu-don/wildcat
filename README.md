@@ -21,7 +21,7 @@ To install use pip:
 
 Or clone the repo:
 
-    $ git clone https://github.com/mdrft/wildcat_qdk.git
+    $ git clone https://github.com/mdrft/wildcat.git
     $ python setup.py install
     
 Contributing
