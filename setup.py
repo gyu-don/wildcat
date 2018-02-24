@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-__version__ = '0.0.8'
+__version__ = '0.0.10'
 
 here = path.abspath(path.dirname(__file__))
 
@@ -22,7 +22,7 @@ setup(
     version=__version__,
     description='Wildcat Python SDK to Use Annealers',
     long_description=long_description,
-    url='https://github.com/mdrft/wildcat_qdk',
+    url='https://github.com/mdrft/wildcat',
     download_url='https://github.com/mdrft/wildcat_qdk/tarball/' + __version__,
     license='MIT',
     classifiers=[

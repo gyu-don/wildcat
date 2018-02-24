@@ -3,7 +3,7 @@
 Wildcat Python SDK
 ===============================
 
-version number: 0.0.7
+version number: 0.0.10
 author: Shumpei Kobayashi
 
 Overview
