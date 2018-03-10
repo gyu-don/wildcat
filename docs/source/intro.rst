@@ -54,5 +54,5 @@ Checking and Verifying solutions
 --------------------------------
 
 We can calculate how good (or bad) a solution is by calculating ‘Energy’ of the solution, which can be done by a Wildcat one-liner.
- Repeatedly solving Ising model, comparing that energy may let you know which is the best, or better answer to the problem.
-  If the problem is of NP, then checking whether the constraints are fulfilled can also be calculated in polynomial time.
+Repeatedly solving Ising model, comparing that energy may let you know which is the best, or better answer to the problem.
+If the problem is of NP, then checking whether the constraints are fulfilled can also be calculated in polynomial time.
