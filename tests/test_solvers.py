@@ -13,6 +13,7 @@ def test_ising_hamiltonian_solver():
 def test_qubo_solver():
     qubo = random_symmetric_matrix()
     solver = QuboSolver(qubo=qubo)
+    solver.build_ising_interactions()
     assert not (solver is None)
     assert solver.ising_interactions.shape[0] == qubo.shape[0]
 

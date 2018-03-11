@@ -7,7 +7,10 @@ class QuboSolver(BaseSolver):
         super().__init__()
         if not (qubo is None):
             self.qubo = qubo
-        self.build_ising_interactions()
 
     def adjust_solutions_from_ising_spins(self, solutions):
         return spin_to_zero_one(solutions)
+
+    def solve(self, callback, endpoint=None):
+        self.build_ising_interactions()
+        return super().solve(callback, endpoint=endpoint)
