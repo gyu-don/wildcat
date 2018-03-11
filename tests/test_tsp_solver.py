@@ -66,6 +66,7 @@ def test_tsp_solver():
             future = solver.solve(callback, endpoint=local_endpoint)
             future.result()
         else:
+            builder.plot(result)
             assert result.distance() > 0
 
     schedule = TemperatureSchedule(initial_temperature=1000, last_temperature=0.1, scale=0.8)
@@ -76,7 +77,7 @@ def test_tsp_solver():
     future = solver.solve(callback, endpoint=local_endpoint)
     future.result()
 
-def test_tsp_plot():
+def test_tsp_solver_solve_until_success():
     positions = np.array((
         (24050.0000, 123783),
         (24216.6667, 123933),
@@ -93,22 +94,17 @@ def test_tsp_plot():
         builder.add_point(position[0], position[1])
     solver = TSPSolver(distance=builder.build(), constraints_weight=1000)
 
-    def callback(q):
-        result = solver.humanize_result(q)
+    def callback(results):
+        result = results[0]
         print(result)
         print("Distance: {0}".format(result.distance()))
-        print("Energy: {0}".format(solver.qubo_energy(q)))
-        if not result.success:
-            future = solver.solve(callback, endpoint=local_endpoint)
-            future.result()
-        else:
-            builder.plot(result)
-            assert result.distance() > 0
+        print("Energy: {0}".format(solver.qubo_energy(result.q)))
+        builder.plot(result)
+        assert result.distance() > 0
 
     schedule = TemperatureSchedule(initial_temperature=1000, last_temperature=0.1, scale=0.8)
     strategy = SingleSpinFlipStrategy(repetition=10)
     annealer = SimulatedAnnealer(schedule=schedule, strategy=strategy)
     local_endpoint = LocalEndpoint(annealer=annealer)
 
-    future = solver.solve(callback, endpoint=local_endpoint)
-    future.result()
+    solver.solve_until_success(callback, endpoint=local_endpoint, success_count=30)
