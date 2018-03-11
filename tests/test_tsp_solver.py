@@ -107,4 +107,4 @@ def test_tsp_solver_solve_until_success():
     annealer = SimulatedAnnealer(schedule=schedule, strategy=strategy)
     local_endpoint = LocalEndpoint(annealer=annealer)
 
-    solver.solve_until_success(callback, endpoint=local_endpoint, success_count=30)
+    solver.solve_until_success(callback, endpoint=local_endpoint, success_count=1)
