@@ -7,13 +7,16 @@ from wildcat.solver.qubo_solver import QuboSolver
 class TSPSolver(QuboSolver):
     def __init__(self, distance=None, constraints_weight=None):
         self.distance = distance
-        if constraints_weight is None:
-            self.constraints_weight = self.distance.max() / 2
-        else:
+        self.adjust_constraints_weight()
+        if not (constraints_weight is None):
             self.constraints_weight = constraints_weight
         self.cost_hamiltonian = None
         self.constraint_hamiltonian = None
         super().__init__()
+
+    def adjust_constraints_weight(self):
+        if not (self.distance is None):
+            self.constraints_weight = self.distance.max() / 2
 
     def _build_hamiltonian(self):
         if self.ising_interactions.shape[0] == 0:
