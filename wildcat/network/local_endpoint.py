@@ -10,9 +10,10 @@ class LocalEndpoint:
 
     def anneal(self, solver, callback):
         self.annealer.anneal(solver.ising_interactions)
+        q = solver.adjust_solutions_from_ising_spins(self.annealer.q)
         if not (callback is None):
-            callback(self.annealer.q)
-        return self.annealer.q
+            callback(q)
+        return q
 
     def dispatch(self, solver, callback=None):
         if solver.ising_interactions.shape[0] == 0:

@@ -13,6 +13,10 @@ def random_symmetric_matrix(size=100):
     return symmetrize(np.random.uniform(-1, 1, (size, size)))
 
 
+def random_symmetric_positive_matrix(size=100):
+    return symmetrize(np.random.uniform(0, 1, (size, size)))
+
+
 def quadratic_form(vector, matrix):
     return vector.T.dot(matrix).dot(vector)
 

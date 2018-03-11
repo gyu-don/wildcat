@@ -11,8 +11,9 @@ class BaseSolver:
         self.endpoint = Endpoint()
 
     def solve(self, callback, endpoint=None):
+
         if self.ising_interactions.shape[0] == 0:
-            self.qubo()
+            self.build_qubo()
         if self.qubo.shape[0] == 0:
             self.build_ising_interactions()
 

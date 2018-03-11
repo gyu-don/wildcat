@@ -18,6 +18,7 @@ class SimulatedAnnealer(BaseAnnealer):
 
     def anneal(self, hamiltonian):
         self.initialize_annealing(hamiltonian)
+        self.temperature_schedule.reset()
         for T in self.temperature_schedule:
             self.strategy.update(self, T)
         return self.q
