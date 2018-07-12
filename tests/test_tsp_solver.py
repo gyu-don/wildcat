@@ -11,11 +11,13 @@ from wildcat.util.matrix import random_symmetric_positive_matrix
 def test_initialize_tsp_solver():
     assert not TSPSolver() is None
 
+
 def test_initialize_tsp_solver_with_distance():
     solver = TSPSolver(distance=random_symmetric_positive_matrix(size=10))
     solver.build_ising_interactions()
     assert not (solver.ising_interactions is None)
     assert solver.ising_interactions.shape[0] != 0
+
 
 def test_tsp_solver_response_is_binary():
     solver = TSPSolver(distance=random_symmetric_positive_matrix(size=10))
@@ -28,6 +30,7 @@ def test_tsp_solver_response_is_binary():
 
     future = solver.solve(callback)
     assert (future.result().status_code == 200)
+
 
 def test_tsp_distance_builder():
     builder = TSPDistanceBuilder2D()
@@ -69,7 +72,7 @@ def test_tsp_solver():
             builder.plot(result)
             assert result.distance() > 0
 
-    schedule = TemperatureSchedule(initial_temperature=1000, last_temperature=0.1, scale=0.8)
+    schedule = TemperatureSchedule(initial_temperature=10, last_temperature=0.1, scale=0.8)
     strategy = SingleSpinFlipStrategy(repetition=10)
     annealer = SimulatedAnnealer(schedule=schedule, strategy=strategy)
     local_endpoint = LocalEndpoint(annealer=annealer)
@@ -77,8 +80,10 @@ def test_tsp_solver():
     future = solver.solve(callback, endpoint=local_endpoint)
     future.result()
 
+
 import os
-is_travis = 'TRAVIS' in os.environ
+
+is_travis = os.getenv('TRAVIS', False)
 if not is_travis:
     def test_tsp_solver_solve_until_success():
         positions = np.array((
