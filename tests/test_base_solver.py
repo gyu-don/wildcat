@@ -1,8 +1,8 @@
 import numpy as np
 
+from wildcat.network.local_endpoint import LocalEndpoint
 from wildcat.solver.base_solver import BaseSolver
 from wildcat.util.matrix import check_symmetric, random_symmetric_matrix
-
 
 def test_qubo_solver_initialization():
     solver = BaseSolver()
@@ -48,3 +48,18 @@ def test_qubo_solver():
     solver.qubo = np.ones([100, 100])
     solver.build_ising_interactions()
     assert solver.ising_interactions.shape == (100, 100)
+
+
+def test_base_solver_build_ising_interactions_with_qubo():
+    solver = BaseSolver()
+    solver.qubo = random_symmetric_matrix()
+    callback = lambda result: None
+    solver.solve(callback, endpoint=LocalEndpoint())
+    assert solver.ising_interactions.shape[0] > 0
+
+def test_base_solver_build_qubo_with_ising_interactions():
+    solver = BaseSolver()
+    solver.ising_interactions = random_symmetric_matrix()
+    callback = lambda result: None
+    solver.solve(callback, endpoint=LocalEndpoint())
+    assert solver.qubo.shape[0] > 0
