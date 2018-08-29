@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/skonb/wildcat_qdk.svg?branch=feature%2Ftravis_ci)](https://travis-ci.org/skonb/wildcat_qdk)
 
-Wildcat Python SDK
+Wildqat Python SDK
 ===============================
 
 Overview
@@ -10,11 +10,6 @@ Python Framework for Ising Model
 
 Installation / Usage
 --------------------
-
-#To install use pip:
-
-#    $ pip install wildcat
-
 
 clone the repo:
 
