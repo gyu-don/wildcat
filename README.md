@@ -3,36 +3,28 @@
 Wildcat Python SDK
 ===============================
 
-version number: 0.0.10
-author: Shumpei Kobayashi
-
 Overview
 --------
 
-Wildcat Python SDK to Use Annealers
+Python Framework for Ising Model
 
 Installation / Usage
 --------------------
 
-To install use pip:
+#To install use pip:
 
-    $ pip install wildcat
+#    $ pip install wildcat
 
 
-Or clone the repo:
+clone the repo:
 
     $ git clone https://github.com/mdrft/wildcat.git
     $ python setup.py install
-    
-Contributing
-------------
-
-TBD
 
 Example
 -------
 
-To find an optimal arrangement with wildcat remote server:
+To find an optimal arrangement with wildqat remote server:
 ```python
 from wildcat.util.matrix import random_symmetric_matrix
 from wildcat.solver.ising_hamiltonian_solver import IsingHamiltonianSolver
