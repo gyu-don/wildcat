@@ -16,3 +16,8 @@ clone the repo:
 
 Example
 -------
+
+import wildqat as wq
+a = wq.anneal()
+a.J = [[0,-1,-1],[0,0,-1],[0,0,0]]
+a.sa()
