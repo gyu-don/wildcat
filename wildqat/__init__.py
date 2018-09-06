@@ -19,8 +19,8 @@ class anneal:
 
 		self.R = 0.95
 		self.ite = 1000
-		self.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
-		self.J = [[0,-1,-1],[0,0,-1],[0,0,0]]
+		self.qubo = []
+		self.J = []
 
 		self.ep = 0
 
@@ -30,10 +30,10 @@ class anneal:
 
 	def qi(self):
 		nn = len(self.qubo)
-		self.J = [np.random.choice([-1,1],nn) for j in range(nn)]
+		self.J = [np.random.choice([1.,1.],nn) for j in range(nn)]
 		for i in range(nn):
 			for j in range(i+1,nn):
-				self.J[i][j] = self.qubo[i][j]*0.25
+				self.J[i][j] = self.qubo[i][j]/4
 
 		self.J = np.triu(self.J)+np.triu(self.J,k=1).T
 
@@ -58,6 +58,8 @@ class anneal:
 	def sa(self):
 		start = time.time()
 		T = self.Ts
+		if self.qubo != []:
+			self.qi()
 		J = self.reJ()
 		N = len(J)
 		q = np.random.choice([-1,1],N)
