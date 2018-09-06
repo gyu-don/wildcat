@@ -12,7 +12,7 @@ $ pip3 install wildqat
 or
 
 ```
-$ git clone https://github.com/mdrft/wildcat.git
+$ git clone https://github.com/mdrft/Wildqat.git
 $ python setup.py install
 ```
 
