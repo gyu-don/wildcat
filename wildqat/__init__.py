@@ -1,4 +1,5 @@
 import numpy as np
+import time
   
 def reJ(j2):
 	j2 = np.triu(j2) + np.triu(j2, k=1).T
@@ -45,24 +46,22 @@ class anneal:
 		self.J = [[0,-1,-1],[0,0,-1],[0,0,0]]
 
 	def sa(self):
+		start = time.time()
 		T = self.Ts
 		J = reJ(self.J)
 		N = len(J)
 		q = np.random.choice([-1,1],N)
 		while T>self.Tf:
-			for i in range(self.ite):
-				x = np.random.randint(N)
-				dE = 0
-
-				for j in range(N):
-					if j == x:
-						dE += -2*q[x]*J[x][x]
-					else:
-						dE += -2*q[j]*q[x]*J[j][x]
+			x_list = np.random.randint(0, N, self.ite)
+			for x in x_list:
+				q2 = np.ones(N)*q[x]
+				q2[x] = 1
+				dE = -2*sum(q*q2*J[:,x])
 
 				if dE < 0 or np.exp(-dE/T) > np.random.random_sample():
 					q[x] *= -1
 			T *= self.R
+		print(time.time() - start)
 		return q
 
 	def sqa(self):
