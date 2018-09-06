@@ -14,6 +14,6 @@ Example
 ```python
 import wildqat as wq
 a = wq.anneal()
-a.J = [[0,-1,-1],[0,0,-1],[0,0,0]]
-a.sa()
+a.J = wq.q2i([[4,-4,-4],[0,4,-4],[0,0,4]])
+a.sa() #=> array([1, 1, 1])
 ```

@@ -1,35 +1,34 @@
 import numpy as np
   
-def reJ(jj):
-	jj = np.triu(jj) + np.triu(jj, k=1).T
-	return jj
+def reJ(j2):
+	j2 = np.triu(j2) + np.triu(j2, k=1).T
+	return j2
 
-def Ei(qq,jj):
+def Ei(q3,j3):
 	EE = 0
-	for i in range(len(qq)):
-		EE += qq[i]*jj[i][i]
-		EE += sum(qq[i]*qq[i+1:]*jj[i][i+1:])
+	for i in range(len(q3)):
+		EE += q3[i]*j3[i][i]
+		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
 	return EE
 
-def q2i(jjj):
-	jj = jjj
-	nn = len(jj)
+def q2i(j4):
+	nn = len(j4)
 	for i in range(nn):
 		for j in range(i+1,nn):
-			jj[i][j] *= 0.25
+			j4[i][j] *= 0.25
 
-	jj = np.triu(jj)+np.triu(jj,k=1).T
+	j4 = np.triu(j4)+np.triu(j4,k=1).T
 
 	for i in range(nn):
 		sum = 0
 		for j in range(nn):
 			if i == j:
-				sum += jj[i][i]*0.5
+				sum += j4[i][i]*0.5
 			else:
-				sum += jj[i][j]
-		jj[i][i] = sum
+				sum += j4[i][j]
+		j4[i][i] = sum
 
-	return np.triu(jj)
+	return np.triu(j4)
 
 class anneal:
 	def __init__(self):
@@ -47,7 +46,6 @@ class anneal:
 
 	def sa(self):
 		T = self.Ts
-		self.J = q2i(self.qubo)
 		J = reJ(self.J)
 		N = len(J)
 		q = np.random.choice([-1,1],N)
