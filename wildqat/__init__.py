@@ -1,35 +1,12 @@
 import numpy as np
 import time
   
-def reJ(j2):
-	j2 = np.triu(j2) + np.triu(j2, k=1).T
-	return j2
-
-def Ei(q3,j3):
-	EE = 0
-	for i in range(len(q3)):
-		EE += q3[i]*j3[i][i]
-		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
-	return EE
-
-def q2i(j4):
-	nn = len(j4)
-	for i in range(nn):
-		for j in range(i+1,nn):
-			j4[i][j] *= 0.25
-
-	j4 = np.triu(j4)+np.triu(j4,k=1).T
-
-	for i in range(nn):
-		sum = 0
-		for j in range(nn):
-			if i == j:
-				sum += j4[i][i]*0.5
-			else:
-				sum += j4[i][j]
-		j4[i][i] = sum
-
-	return np.triu(j4)
+#def Ei(q3,j3):
+#	EE = 0
+#	for i in range(len(q3)):
+#		EE += q3[i]*j3[i][i]
+#		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
+#	return EE+self.ep
 
 class anneal:
 	def __init__(self):
@@ -45,10 +22,43 @@ class anneal:
 		self.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
 		self.J = [[0,-1,-1],[0,0,-1],[0,0,0]]
 
+		self.ep = 0
+
+	def reJ(self):
+        	return np.triu(self.J) + np.triu(self.J, k=1).T
+		
+
+	def qi(self):
+		nn = len(self.qubo)
+		self.J = [np.random.choice([-1,1],nn) for j in range(nn)]
+		for i in range(nn):
+			for j in range(i+1,nn):
+				self.J[i][j] = self.qubo[i][j]*0.25
+
+		self.J = np.triu(self.J)+np.triu(self.J,k=1).T
+
+		for i in range(nn):
+			sum = 0
+			for j in range(nn):
+				if i == j:
+					sum += self.qubo[i][i]*0.5
+				else:
+					sum += self.J[i][j]
+			self.J[i][i] = sum
+
+		self.ep = 0
+
+		for i in range(nn):
+			self.ep += self.J[i][i]
+			for j in range(i+1,nn):
+				self.ep -= self.J[i][j]
+
+		self.J = np.triu(self.J)
+
 	def sa(self):
 		start = time.time()
 		T = self.Ts
-		J = reJ(self.J)
+		J = self.reJ()
 		N = len(J)
 		q = np.random.choice([-1,1],N)
 		while T>self.Tf:
@@ -69,8 +79,6 @@ class anneal:
 		J = reJ(self.J)
 		N = len(J)
 		q = [np.random.choice([-1,1],N) for j in range(self.tro)]
-		for i in range(self.tro):
-			q[i] = np.random.choice([-1,1],N)
 		while G>self.Gf:
 			for i in range(self.ite*self.tro):
 				x = np.random.randint(N)
