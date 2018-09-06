@@ -25,3 +25,11 @@ a = wq.anneal()
 a.J = wq.q2i([[4,-4,-4],[0,4,-4],[0,0,4]]) #QUBO converted to Jij matrix
 a.sa() #=> array([1, 1, 1])
 ```
+
+Tutorial
+----------
+
+日本語
+https://github.com/mdrft/Wildqat/tree/master/examples
+
+
