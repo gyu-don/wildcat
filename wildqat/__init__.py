@@ -67,7 +67,6 @@ class anneal:
 
 	def sqa(self):
 		G = self.Gs
-		self.J = q2i(self.qubo)
 		J = reJ(self.J)
 		N = len(J)
 		q = [np.random.choice([-1,1],N) for j in range(self.tro)]
