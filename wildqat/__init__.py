@@ -8,7 +8,7 @@ import time
 #		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
 #	return EE+self.ep
 
-class anneal:
+class opt:
 	def __init__(self):
 		self.Ts = 5
 		self.Tf = 0.02

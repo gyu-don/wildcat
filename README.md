@@ -1,6 +1,6 @@
 Wildqat Python SDK
 --------
-Python Framework for Ising Model
+Python Framework for QUBO 
 
 Install
 --------------------
@@ -21,9 +21,9 @@ Example
 
 ```python
 import wildqat as wq
-a = wq.anneal()
+a = wq.opt()
 a.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
-a.sa() #=> array([1, 1, 1])
+a.sa() #=> [1, 1, 1]
 ```
 
 Tutorial
