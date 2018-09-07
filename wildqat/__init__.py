@@ -74,11 +74,14 @@ class anneal:
 					q[x] *= -1
 			T *= self.R
 		print(time.time() - start)
-		return q
+		qq = [int((i+1)/2) for i in q]
+		return qq
 
 	def sqa(self):
 		G = self.Gs
-		J = reJ(self.J)
+		if self.qubo != []:
+			self.qi()
+		J = self.reJ()
 		N = len(J)
 		q = [np.random.choice([-1,1],N) for j in range(self.tro)]
 		while G>self.Gf:
