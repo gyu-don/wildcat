@@ -23,7 +23,6 @@ Example
 import wildqat as wq
 a = wq.anneal()
 a.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
-a.qi() #QUBO to Jij
 a.sa() #=> array([1, 1, 1])
 ```
 
