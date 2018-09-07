@@ -29,7 +29,7 @@ a.sa() #=> [1, 1, 1]
 Tutorial
 ----------
 
-日本語
-https://github.com/mdrft/Wildqat/tree/master/examples
+日本語  
+https://github.com/mdrft/Wildqat/tree/master/examples_ja
 
 
