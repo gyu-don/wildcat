@@ -26,7 +26,9 @@ class opt:
 
 	def reJ(self):
         	return np.triu(self.J) + np.triu(self.J, k=1).T
-		
+
+	def sel(self,selN,selK):
+		self.qubo = np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)	
 
 	def qi(self):
 		nn = len(self.qubo)
