@@ -15,7 +15,7 @@ def mul(mulA,mulB):
 	return np.triu(np.outer(mulA,mulB))+np.triu(np.outer(mulA,mulB),k=1)
 
 def sqr(sqrA):
-	return np.triu(np.outer(sqrA,sqrA))+np.triu(np.outer(sqrA,sqrB),k=1)
+	return np.triu(np.outer(sqrA,sqrA))+np.triu(np.outer(sqrA,sqrA),k=1)
 
 class opt:
 	def __init__(self):
