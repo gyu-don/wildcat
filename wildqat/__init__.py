@@ -11,6 +11,9 @@ import time
 def sel(selN,selK):
 	return np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
 
+def mul(mulA,mulB):
+	return np.triu(np.outer(mulA,mulB))+np.triu(np.outer(mulA,mulB),k=1)
+
 class opt:
 	def __init__(self):
 		self.Ts = 5
