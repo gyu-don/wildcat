@@ -24,6 +24,7 @@ import wildqat as wq
 a = wq.opt()
 a.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
 a.sa() #=> [1, 1, 1]
+print(a.E[-1]) #=>[0.0]
 ```
 
 Tutorial
