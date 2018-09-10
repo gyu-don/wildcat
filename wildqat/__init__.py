@@ -1,12 +1,12 @@
 import numpy as np
 import time
   
-#def Ei(q3,j3):
-#	EE = 0
-#	for i in range(len(q3)):
-#		EE += q3[i]*j3[i][i]
-#		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
-#	return EE+self.ep
+def Ei(q3,j3):
+	EE = 0
+	for i in range(len(q3)):
+		EE += q3[i]*j3[i][i]
+		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
+	return EE
 
 def sel(selN,selK):
 	return np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
@@ -32,6 +32,7 @@ class opt:
 		self.J = []
 
 		self.ep = 0
+		self.E = []
 
 	def reJ(self):
         	return np.triu(self.J) + np.triu(self.J, k=1).T
@@ -71,6 +72,8 @@ class opt:
 		J = self.reJ()
 		N = len(J)
 		q = np.random.choice([-1,1],N)
+		self.E = []
+		self.E.append(Ei(q,self.J)+self.ep)
 		while T>self.Tf:
 			x_list = np.random.randint(0, N, self.ite)
 			for x in x_list:
@@ -80,6 +83,7 @@ class opt:
 
 				if dE < 0 or np.exp(-dE/T) > np.random.random_sample():
 					q[x] *= -1
+			self.E.append(Ei(q,self.J)+self.ep)
 			T *= self.R
 		print(time.time() - start)
 		qq = [int((i+1)/2) for i in q]
