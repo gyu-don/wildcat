@@ -33,4 +33,11 @@ Tutorial
 日本語  
 https://github.com/mdrft/Wildqat/tree/master/examples_ja
 
+Authors
+----------
+`Yuichiro Minato <https://github.com/minatoyuichiro>`(MDR),(MDR),(TerraSky), (TerraSky)
+
+Disclaimer
+----------
+Copyright 2018 The Wildqat Developers.
 
