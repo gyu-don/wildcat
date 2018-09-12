@@ -35,7 +35,7 @@ https://github.com/mdrft/Wildqat/tree/master/examples_ja
 
 Authors
 ----------
-<a href="https://github.com/minatoyuichiro">Yuichiro Minato</a>(MDR),(MDR),(TerraSky), (TerraSky)
+<a href="https://github.com/minatoyuichiro">Yuichiro Minato</a>(MDR),<a href="https://github.com/Morning777">Asa Eagle</a>(MDR),(TerraSky), (TerraSky)
 
 Disclaimer
 ----------
