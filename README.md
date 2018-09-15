@@ -2,6 +2,10 @@ Wildqat Python SDK
 --------
 Python Framework for QUBO 
 
+Version
+--------
+0.4.1
+
 Install
 --------------------
 
