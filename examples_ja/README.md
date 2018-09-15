@@ -19,4 +19,4 @@ Wildqat日本語チュートリアル
 18.３体問題の２体問題への分解  
 20.素因数分解  
 22.MAXCUT  
-23.Weak Strong Cluster問題  
+23.<a href="tutorial023_weak_strong_cluster.ipynb" target="_blank">Weak Strong Cluster問題</a>  
