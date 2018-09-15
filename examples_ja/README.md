@@ -21,7 +21,7 @@ Wildqat日本語チュートリアル
 14.Set Packing   
 15.Travelling Salesman  
 16.Vertex Cover  
-17.<a href="tutorial017_traffic_flow_optimization.ipynb">Traffic Flow Optimization</a>  
+17.<a href="tutorial017_traffic_flow_optimization.ipynb">交通流最適化問題</a>  
 18.<a href="tutorial018_boolean_reduction.ipynb">３体問題の２体問題への分解</a>  
 19.<a href="tutorial019_portfolio_optimization.ipynb">ポートフォリオ最適化問題</a>  
 20.<a href="tutorial020_prime_factorization.ipynb">素因数分解</a>  
