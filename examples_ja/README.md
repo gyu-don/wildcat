@@ -16,12 +16,12 @@ Wildqat日本語チュートリアル
 8.Graph Coloring  
 9.Graph Partitioning  
 10.Job Sequencing With Integer Lengths  
-11.Knapsack with Integer Weights
-13.Set Cover 
-14.Set Packing 
-15.Travelling Salesman 
-16.Vertex Cover
-17.Traffic Flow Optimization
+11.Knapsack with Integer Weights  
+13.Set Cover  
+14.Set Packing   
+15.Travelling Salesman  
+16.Vertex Cover  
+17.Traffic Flow Optimization  
 18.<a href="tutorial018_boolean_reduction.ipynb">３体問題の２体問題への分解</a>  
 19.Portfolio Optimization
 20.<a href="tutorial020_prime_factorization.ipynb">素因数分解</a>  
