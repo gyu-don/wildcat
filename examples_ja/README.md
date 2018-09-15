@@ -23,8 +23,8 @@ Wildqat日本語チュートリアル
 16.Vertex Cover  
 17.Traffic Flow Optimization  
 18.<a href="tutorial018_boolean_reduction.ipynb">３体問題の２体問題への分解</a>  
-19.Portfolio Optimization
+19.ポートフォリオ最適化問題  
 20.<a href="tutorial020_prime_factorization.ipynb">素因数分解</a>  
-22.<a href="tutorial022_maxcut.ipynb">MAXCUT</a>  
+22.<a href="tutorial022_maxcut.ipynb">MAXCUT問題</a>  
 23.<a href="tutorial023_weak_strong_cluster.ipynb">Weak Strong Cluster問題</a>  
 24.<a href="tutorial024_protein_foldings.ipynb">タンパク質折りたたみ問題</a>
