@@ -17,10 +17,10 @@ Wildqat日本語チュートリアル
 9.Graph Partitioning  
 10.Job Sequencing With Integer Lengths  
 11.Knapsack with Integer Weights  
-13.Set Cover  
-14.Set Packing   
-15.Travelling Salesman  
-16.Vertex Cover  
+13.<a href="tutorial013_set_cover.ipynb">Set Cover</a>  
+14.<a href="tutorial014_set_packing.ipynb">Set Packing</a>   
+15.<a href="tutorial015_travelling_salesman.ipynb">Travelling Salesman</a>  
+16.<a href="tutorial016_vertex_cover.ipynb">Vertex Cover</a>  
 17.<a href="tutorial017_traffic_flow_optimization.ipynb">交通流最適化問題</a>  
 18.<a href="tutorial018_boolean_reduction.ipynb">３体問題の２体問題への分解</a>  
 19.<a href="tutorial019_portfolio_optimization.ipynb">ポートフォリオ最適化問題</a>  
