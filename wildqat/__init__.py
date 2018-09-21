@@ -8,6 +8,13 @@ def Ei(q3,j3):
 		EE += sum(q3[i]*q3[i+1:]*j3[i][i+1:])
 	return EE
 
+def Ei_sqa(q, J, T, P, G):
+	E = 0
+	for p in range(P):
+		E += Ei(q[p], J)
+		E += T / 2 * np.log(1 / np.tanh(G / T / P)) * np.sum(q[p,:] * q[(p+1+P) % P, :])
+	return E
+
 def sel(selN,selK):
 	return np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
 
@@ -95,22 +102,24 @@ class opt:
 			self.qi()
 		J = self.reJ()
 		N = len(J)
-		q = [np.random.choice([-1,1],N) for j in range(self.tro)]
+		q = np.random.choice([-1,1], self.tro*N).reshape(self.tro, N)
+		self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G))
 		while G>self.Gf:
-			for i in range(self.ite*self.tro):
+			for _ in range(self.ite):
 				x = np.random.randint(N)
 				y = np.random.randint(self.tro)
 				dE = 0
 
 				for j in range(N):
 					if j == x:
-						dE += -2*q[y][x]*J[x][x]
+						dE += -2*q[y][x]*J[x][x] / self.tro
 					else:
-						dE += -2*q[y][j]*q[y][x]*J[j][x]
+						dE += -2*q[y][j]*q[y][x]*J[j][x] / self.tro
 
-				dE += q[y][x]*(q[(self.tro+y-1)%self.tro][x]+q[(y+1)%self.tro][x])*np.log(1/np.tanh(G/self.Tf/self.tro))/self.Tf;
+				dE += -q[y][x]*(q[(self.tro+y-1)%self.tro][x]+q[(y+1)%self.tro][x])*np.log(1/np.tanh(G/self.Tf/self.tro))*self.Tf
 
 				if dE < 0 or np.exp(-dE/self.Tf) > np.random.random_sample():
 					q[y][x] *= -1
+			self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G))
 			G *= self.R
 		return q
