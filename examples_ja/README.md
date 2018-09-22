@@ -11,10 +11,10 @@ Wildqat日本語チュートリアル
 3.<a href="tutorial003_numberpartitioning_ja.ipynb">自然数分解問題</a>  
 4.Binary Integer Linear Programming  
 5.Clique Cover  
-6.Cliques  
+6.<a href="tutorial006_cliques.ipynb">Cliques</a>  
 7.<a href="tutorial007_exact_cover.ipynb">Exact Cover</a>  
-8.Graph Coloring  
-9.Graph Partitioning  
+8.<a href="tutorial008_graph_coloring.ipynb">Graph Coloring</a>  
+9.<a href="tutorial009_graph_partitioning.ipynb">Graph Partitioning</a>  
 10.Job Sequencing With Integer Lengths  
 11.Knapsack with Integer Weights  
 13.<a href="tutorial013_set_cover.ipynb">Set Cover</a>  
