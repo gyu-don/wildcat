@@ -47,7 +47,7 @@ plt.show()
 Functions
 -------
 
-###sel(N,K,array)  
+sel(N,K,array)  
 Automatically create QUBO which select K qubits from N qubits
 ```python
 print(wq.sel(5,2))
@@ -70,7 +70,7 @@ print(wq.sel(5,2,[0,2]))
  [ 0.   0.   0.   0.  -3. ]]
 ```
 
-###net(arr,N)  
+net(arr,N)  
 Automatically create QUBO which has value 1 for all connectivity defined by array of edges and graph size N
 ```python
 print(wq.net([[0,1],[1,2]],4))
