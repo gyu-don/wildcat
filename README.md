@@ -31,6 +31,21 @@ a.sa() #=> [1, 1, 1]
 print(a.E[-1]) #=>[0.0]
 ```
 
+Functions
+-------
+sel(N,K)
+Automatically create QUBO which select K qubits from N qubits
+```python
+print(wq.sel(5,2))
+#=>
+[[-3  2  2  2  2]
+ [ 0 -3  2  2  2]
+ [ 0  0 -3  2  2]
+ [ 0  0  0 -3  2]
+ [ 0  0  0  0 -3]]
+```
+
+
 Tutorial
 ----------
 
