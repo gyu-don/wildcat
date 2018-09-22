@@ -31,6 +31,19 @@ a.sa() #=> [1, 1, 1]
 print(a.E[-1]) #=>[0.0]
 ```
 
+Energy Function
+-------
+Energy function of the calculation is stored in attribute E as an array.
+```python
+
+print(a.E[-1]) #=>[0.0]
+
+#if you want to check the time evolution
+import matplotlib.pyplot as plt
+plt.plot(a.E)
+plt.show()
+```
+
 Functions
 -------
 sel(N,K)  
@@ -46,7 +59,7 @@ print(wq.sel(5,2))
 ```
 
 net(arr,N)  
-Automatically create QUBO which has value 1 for all connectivity defined by arr and network size N
+Automatically create QUBO which has value 1 for all connectivity defined by array of edges and graph size N
 ```python
 print(wq.net([[0,1],[1,2]],4))
 #=>
