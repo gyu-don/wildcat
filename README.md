@@ -33,7 +33,7 @@ print(a.E[-1]) #=>[0.0]
 
 Functions
 -------
-sel(N,K)
+sel(N,K)  
 Automatically create QUBO which select K qubits from N qubits
 ```python
 print(wq.sel(5,2))
