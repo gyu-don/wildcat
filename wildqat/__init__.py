@@ -24,6 +24,13 @@ def mul(mulA,mulB):
 def sqr(sqrA):
 	return np.triu(np.outer(sqrA,sqrA))+np.triu(np.outer(sqrA,sqrA),k=1)
 
+def net(narr,nnet):
+	mat = np.zeros((nnet,nnet))
+	for i in range(len(narr)):
+		narr[i] = np.sort(narr[i])
+		mat[narr[i][0]][narr[i][1]] = 1
+	return mat
+
 class opt:
 	def __init__(self):
 		self.Ts = 5
