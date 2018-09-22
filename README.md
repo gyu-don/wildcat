@@ -4,7 +4,7 @@ Python Framework for QUBO
 
 Version
 --------
-0.4.4
+0.4.7
 
 Install
 --------------------
