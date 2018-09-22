@@ -1,6 +1,4 @@
 import numpy as np
-import networkx as nx
-import matplotlib.pyplot as plt
 import time
   
 def Ei(q3,j3):
@@ -84,6 +82,11 @@ class opt:
 				self.ep -= self.J[i][j]
 
 		self.J = np.triu(self.J)
+
+	def plot(self):
+		import matplotlib.pyplot as plt
+		plt.plot(self.E)
+		plt.show()
 
 	def sa(self):
 		start = time.time()
