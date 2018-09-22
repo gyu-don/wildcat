@@ -9,7 +9,7 @@ Wildqat日本語チュートリアル
 1.<a href="tutorial001_qubo_ja.ipynb">Quboの使い方</a>  
 2.<a href="tutorial002_one_plus_one_ja.ipynb">1+1の計算</a>  
 3.<a href="tutorial003_numberpartitioning_ja.ipynb">自然数分解問題</a>  
-4.Binary Integer Linear Programming  
+4.<a href="tutorial004_BIL.ipynb">Binary Integer Linear Programming</a>  
 5.Clique Cover  
 6.<a href="tutorial006_cliques.ipynb">Cliques</a>  
 7.<a href="tutorial007_exact_cover.ipynb">Exact Cover</a>  
