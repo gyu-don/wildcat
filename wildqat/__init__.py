@@ -19,7 +19,7 @@ def sel(selN,selK,selarr=[]):
 	selres = np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
 	selmat = np.zeros(selN)
 	for i in range(len(selarr)):
-		selmat[i] += 1
+		selmat[selarr[i]] += 1
 	selres = np.asarray(selres) - 0.5*np.diag(selmat)
 	return selres
 
