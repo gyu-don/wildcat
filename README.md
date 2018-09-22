@@ -4,7 +4,7 @@ Python Framework for QUBO
 
 Version
 --------
-0.5.0
+0.4.9
 
 Install
 --------------------
@@ -46,7 +46,7 @@ plt.show()
 
 Functions
 -------
-sel(N,K)  
+sel(N,K,array)  
 Automatically create QUBO which select K qubits from N qubits
 ```python
 print(wq.sel(5,2))
@@ -56,6 +56,17 @@ print(wq.sel(5,2))
  [ 0  0 -3  2  2]
  [ 0  0  0 -3  2]
  [ 0  0  0  0 -3]]
+```
+
+if you set array on the 3rd params, the result likely to choose the nth qubit in the array
+```python
+print(wq.sel(5,2,[0,2]))
+#=>
+[[-3.5  2.   2.   2.   2. ]
+ [ 0.  -3.   2.   2.   2. ]
+ [ 0.   0.  -3.5  2.   2. ]
+ [ 0.   0.   0.  -3.   2. ]
+ [ 0.   0.   0.   0.  -3. ]]
 ```
 
 net(arr,N)  
