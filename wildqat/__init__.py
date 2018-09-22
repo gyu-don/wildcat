@@ -15,8 +15,13 @@ def Ei_sqa(q, J, T, P, G):
 		E += T / 2 * np.log(1 / np.tanh(G / T / P)) * np.sum(q[p,:] * q[(p+1+P) % P, :])
 	return E
 
-def sel(selN,selK):
-	return np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
+def sel(selN,selK,selarr=[]):
+	selres = np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
+	selmat = np.zeros(selN)
+	for i in range(len(selarr)):
+		selmat[i] += 1
+	selres = np.asarray(selres) - 0.5*np.diag(selmat)
+	return selres
 
 def mul(mulA,mulB):
 	return np.triu(np.outer(mulA,mulB))+np.triu(np.outer(mulA,mulB),k=1)
