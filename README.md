@@ -4,7 +4,7 @@ Python Framework for QUBO
 
 Version
 --------
-0.5.1
+0.5.3
 
 Install
 --------------------
@@ -39,9 +39,7 @@ Energy function of the calculation is stored in attribute E as an array.
 print(a.E[-1]) #=>[0.0]
 
 #if you want to check the time evolution
-import matplotlib.pyplot as plt
-plt.plot(a.E)
-plt.show()
+a.plot()
 ```
 
 Functions
