@@ -4,7 +4,7 @@ Python Framework for QUBO
 
 Version
 --------
-0.5.4
+0.5.6
 
 Install
 --------------------
@@ -80,6 +80,25 @@ print(wq.net([[0,1],[1,2]],4))
 ```
 this create 4*4 QUBO and put value 1 on connection between 0th and 1st qubit, 1st and 2nd qubit  
 
+zeros(N)
+Create QUBO with all element value as 0
+```python
+print(wq.zeros(3))
+#=>
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+```
+
+diag(list)
+Create QUBO with diag from list
+```python
+print(wq.diag([1,2,1]))
+#=>
+[[1 0 0]
+ [0 2 0]
+ [0 0 1]]
+```
 
 Tutorial
 ----------

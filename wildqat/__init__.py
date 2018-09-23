@@ -37,6 +37,12 @@ def net(narr,nnet):
 		mat[narr[i][0]][narr[i][1]] = 1
 	return mat
 
+def diag(diag_ele):
+	return np.diag(diag_ele)
+
+def zeros(zeros_ele):
+	return np.zeros((zeros_ele,zeros_ele))
+
 class opt:
 	def __init__(self):
 		self.Ts = 5
