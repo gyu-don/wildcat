@@ -1,8 +1,10 @@
-Wildqat Tutorial  
+Wildqat Tutorial
+--------------------
 We provide tutorial for wildqat how to make application on QUBO  
 
 
-MENU  
+MENU
+--------------------
 1.Qubo  
 2.1+1  
 3.Number Partitioning  
