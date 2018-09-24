@@ -50,6 +50,22 @@ wq.pauli(wq.sel(2,1))
 # => -0.5*I + 0.5*Z[0]*Z[1]
 ```
 
+With blueqat, you can easily simulate combinatorial optimization problem on Universal Gate Model
+link:<a href="https://github.com/mdrft/Blueqat">Blueqat</a>
+```python
+import wildqat as wq
+from blueqat import vqe
+
+qubo = wq.pauli(wq.sel(4,1))
+step = 4
+result = vqe.Vqe(vqe.QaoaAnsatz(qubo,step)).run()
+print(result.most_common(5))
+
+# => (((0, 0, 1, 0), 0.24650337773427797), ((1, 0, 0, 0), 0.24650337773427794), ((0, 0, 0, 1), 0.24650337773427788), ((0, 1, 0, 0), 0.24650337773427783), ((0, 0, 0, 0), 0.0034271782738342416))
+```
+
+
+
 Functions
 -------
 
