@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-def qubo_to_pauli(qubo):
+def pauli(qubo):
 	from blueqat.pauli import qubo_bit
 	h = 0.0
 	assert all(len(q) == len(qubo) for q in qubo)
