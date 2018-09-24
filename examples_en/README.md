@@ -25,5 +25,5 @@ MENU
 19.Portofolio Optimization  
 20.<a href="tutorial020_prime_factorization_en.ipynb">Prime Factorization</a>  
 22.<a href="tutorial022_maxcut_en.ipynb">MAXCUT</a>  
-23.Weak Strong Cluster Problem  
-24.Protein Foldings  
+23.<a href="tutorial023_weak_strong_cluster_en.ipynb">Weak Strong Cluster Problem</a>  
+24.<a href="tutorial024_protein_foldings_en.ipynb">Protein Foldings</a>  
