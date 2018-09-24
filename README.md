@@ -4,7 +4,7 @@ Python Framework for QUBO
 
 Version
 --------
-0.6.0
+0.6.1
 
 Install
 --------------------
@@ -40,6 +40,14 @@ print(a.E[-1]) #=>[0.0]
 
 #if you want to check the time evolution
 a.plot()
+```
+
+With Universal Gate Model Operator
+-------
+It is convertible to the universal gate model pauli operator for qaoa simulations
+```python
+wq.pauli(wq.sel(2,1))
+-0.5*I + 0.5*Z[0]*Z[1]
 ```
 
 Functions
