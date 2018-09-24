@@ -28,3 +28,4 @@ Wildqat日本語チュートリアル
 22.<a href="tutorial022_maxcut.ipynb">MAXCUT問題</a>  
 23.<a href="tutorial023_weak_strong_cluster.ipynb">Weak Strong Cluster問題</a>  
 24.<a href="tutorial024_protein_foldings.ipynb">タンパク質折りたたみ問題</a>
+25.<a href="tutorial025_QUBO_to_Pauli.ipynb">量子ゲートモデルで解く</a>
