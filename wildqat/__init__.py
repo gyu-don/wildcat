@@ -150,7 +150,7 @@ class opt:
 					else:
 						dE += -2*q[y][j]*q[y][x]*J[j][x] / self.tro
 
-				dE += -q[y][x]*(q[(self.tro+y-1)%self.tro][x]+q[(y+1)%self.tro][x])*np.log(1/np.tanh(G/self.Tf/self.tro))*self.Tf
+				dE += q[y][x]*(q[(self.tro+y-1)%self.tro][x]+q[(y+1)%self.tro][x])*np.log(1/np.tanh(G/self.Tf/self.tro))*self.Tf
 
 				if dE < 0 or np.exp(-dE/self.Tf) > np.random.random_sample():
 					q[y][x] *= -1
