@@ -31,6 +31,16 @@ a.sa() #=> [1, 1, 1]
 print(a.E[-1]) #=>[0.0]
 ```
 
+Parameters
+-------
+Some parameters for simualtion is adjustable
+```python
+#for simualted annealing (sa)
+a.Ts  = 10    #default 5
+a.R   = 0.99  #default 0.95
+a.ite = 10000 #default 1000
+```
+
 Energy Function
 -------
 Energy function of the calculation is stored in attribute E as an array.
