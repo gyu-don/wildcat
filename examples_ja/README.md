@@ -16,7 +16,7 @@ Wildqat日本語チュートリアル
 8.<a href="tutorial008_graph_coloring.ipynb">Graph Coloring</a>  
 9.<a href="tutorial009_graph_partitioning.ipynb">Graph Partitioning</a>  
 10.Job Sequencing With Integer Lengths  
-11.Knapsack with Integer Weights  
+11.<a href="tutorial011_knapsack_with_integer_weights.ipynb">Knapsack with Integer Weights</a>  
 13.<a href="tutorial013_set_cover.ipynb">Set Cover</a>  
 14.<a href="tutorial014_set_packing.ipynb">Set Packing</a>   
 15.<a href="tutorial015_travelling_salesman.ipynb">Travelling Salesman</a>  
