@@ -139,6 +139,8 @@ print(wq.diag([1,2,1]))
 
 Tutorial
 ----------
+English  
+https://github.com/mdrft/Wildqat/tree/master/examples_en  
 
 日本語  
 https://github.com/mdrft/Wildqat/tree/master/examples_ja
