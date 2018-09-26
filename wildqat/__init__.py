@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 
 def pauli(qubo):
 	from blueqat.pauli import qubo_bit
@@ -106,7 +105,6 @@ class opt:
 		plt.show()
 
 	def sa(self):
-		start = time.time()
 		T = self.Ts
 		if self.qubo != []:
 			self.qi()
@@ -126,7 +124,6 @@ class opt:
 					q[x] *= -1
 			self.E.append(Ei(q,self.J)+self.ep)
 			T *= self.R
-		print(time.time() - start)
 		qq = [int((i+1)/2) for i in q]
 		return qq
 
@@ -156,4 +153,5 @@ class opt:
 					q[y][x] *= -1
 			self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G))
 			G *= self.R
-		return q
+		qq = [int((i+1)/2) for i in q]
+		return qq
