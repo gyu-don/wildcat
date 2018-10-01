@@ -7,7 +7,7 @@ MENU
 --------------------
 1.<a href="tutorial001_qubo_en.ipynb">Qubo</a>  
 2.<a href="tutorial002_one_plus_one_en.ipynb">1+1</a>  
-3.Number Partitioning  
+3.<a href="tutorial003_numberpartitioning_en.ipynb">Number Partitioning</a>  
 4.<a href="tutorial004_BIL_en.ipynb">Binary Integer Linear Programming</a>  
 5.Clique Cover  
 6.<a href="tutorial006_cliques_en.ipynb">Cliques</a>  
@@ -18,11 +18,11 @@ MENU
 11.Knapsack with Integer Weights  
 13.Set Cover  
 14.Set Packing  
-15.Travelling Salesman  
+15.<a href="tutorial015_travelling_salesman_en.ipynb">Travelling Salesman</a>  
 16.Vertex Cover  
 17.Traficflow Optimization  
 18.<a href="tutorial018_boolean_reduction_en.ipynb">Boolean Reduction</a>  
-19.Portofolio Optimization  
+19.<a href="tutorial019_portfolio_optimization_en.ipynb">Portofolio Optimization</a>  
 20.<a href="tutorial020_prime_factorization_en.ipynb">Prime Factorization</a>  
 22.<a href="tutorial022_maxcut_en.ipynb">MAXCUT</a>  
 23.<a href="tutorial023_weak_strong_cluster_en.ipynb">Weak Strong Cluster Problem</a>  
