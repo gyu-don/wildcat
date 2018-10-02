@@ -20,7 +20,7 @@ MENU
 14.Set Packing  
 15.<a href="tutorial015_travelling_salesman_en.ipynb">Travelling Salesman</a>  
 16.Vertex Cover  
-17.Traficflow Optimization  
+17.<a href="tutorial017_traffic_flow_optimization_en.ipynb">Traficflow Optimization</a>  
 18.<a href="tutorial018_boolean_reduction_en.ipynb">Boolean Reduction</a>  
 19.<a href="tutorial019_portfolio_optimization_en.ipynb">Portofolio Optimization</a>  
 20.<a href="tutorial020_prime_factorization_en.ipynb">Prime Factorization</a>  
