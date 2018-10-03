@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, The Wildqat Developers
+# This file is distributed under the same license as the wildqat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wildqat \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-03 18:11+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/modules.rst:2
+msgid "API Reference"
+msgstr ""
+
+#: ../../source/api/wildqat.rst:2
+msgid "wildqat package"
+msgstr "wildqatパッケージ"
+
+#: of wildqat:1
+msgid "Wildqat is an open source Python framework for QUBO."
+msgstr "WildqatはQUBOを扱うためのオープンソースフレームワークです。"
+
+#: of wildqat.opt:1
+msgid "Optimizer for SA/SQA."
+msgstr "SAおよびSQAの処理を行うためのクラス。"
+
+#: of wildqat.opt.plot:1
+msgid "Draws energy chart using matplotlib."
+msgstr "エネルギー遷移をグラフ化します。matplotlibがインストールされている必要があります。"
+
+#: of wildqat.opt.sa:1
+msgid ""
+"Run SA with provided QUBO.  Set qubo attribute in advance of calling this"
+" method."
+msgstr "Simulated Annealingを実行します。qubo属性をセットしてから呼び出してください。"
+
+#: of wildqat.opt.sqa:1
+msgid ""
+"Run SQA with provided QUBO. Set qubo attribute in advance of calling this"
+" method."
+msgstr "Simulated Quantum Annealingを実行します。qubo属性をセットしてから呼び出してください。"
+
+#: of wildqat.opt.E:1
+msgid "List of energies"
+msgstr "sa()またはsqa()呼び出し後に、そのエネルギー遷移がListとして保持されています [SA] [SQA]"
+
+#: of wildqat.opt.Gf:1
+msgid "Final strength of transverse magnetic field. [SQA]"
+msgstr "横磁場の最終値"
+
+#: of wildqat.opt.Gs:1
+msgid "Initial strength of transverse magnetic field. [SQA]"
+msgstr "横磁場の初期値"
+
+#: of wildqat.opt.R:1
+msgid "Descreasing rate of temperature [SA]"
+msgstr "次のイテレーションの温度(SA)や横磁場(SQA)を決めるための係数"
+
+#: of wildqat.opt.Tf:1
+msgid "Final temperature [SA]. Temperature [SQA]"
+msgstr "温度の最終値 [SA] または 温度 [SQA]"
+
+#: of wildqat.opt.Ts:1
+msgid "Initial temperature [SA]"
+msgstr "温度の初期値 [SQA]"
+
+#: of wildqat.opt.ite:1
+msgid "Iterations [SA]"
+msgstr "イテレーション数 [SA] [SQA]"
+
+#: of wildqat.opt.qubo:1
+msgid "QUBO"
+msgstr ""
+
+#: of wildqat.opt.tro:1
+msgid "Trotter slices [SQA]"
+msgstr "トロッター数 [SQA]"
+
+#: of wildqat.diag:1
+msgid "Create QUBO with diag from list"
+msgstr ""
+
+#: of wildqat.net:1
+msgid ""
+"Automatically create QUBO which has value 1 for all connectivity defined "
+"by array of edges and graph size N"
+msgstr ""
+
+#: of wildqat.net:12
+msgid ""
+"this create 4*4 QUBO and put value 1 on connection between 0th and 1st "
+"qubit, 1st and 2nd qubit"
+msgstr ""
+
+#: of wildqat.pauli:1
+msgid "Convert to pauli operators of universal gate model. Requires blueqat."
+msgstr ""
+
+#: of wildqat.sel:1
+msgid "Automatically create QUBO which select K qubits from N qubits"
+msgstr ""
+
+#: of wildqat.sel:13
+msgid ""
+"if you set array on the 3rd params, the result likely to choose the nth "
+"qubit in the array"
+msgstr ""
+
+#: of wildqat.zeros:1
+msgid "Create QUBO with all element value as 0"
+msgstr ""
+
+

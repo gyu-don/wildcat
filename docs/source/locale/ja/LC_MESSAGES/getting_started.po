@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, The Wildqat Developers
+# This file is distributed under the same license as the wildqat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wildqat \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-02 15:57+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/getting_started.rst:3
+msgid "Getting Started"
+msgstr "はじめの一歩"
+
+#: ../../source/getting_started.rst:6
+msgid "Prerequisites"
+msgstr "前提条件"
+
+#: ../../source/getting_started.rst:8
+msgid "Python3"
+msgstr ""
+
+#: ../../source/getting_started.rst:9
+msgid "numpy"
+msgstr ""
+
+#: ../../source/getting_started.rst:10
+msgid ""
+"`blueqat <https://github.com/mdrft/Blueqat>`_ (if you want to use "
+"Universal Gate Model.)"
+msgstr "`blueqat <https://github.com/mdrft/Blueqat>`_ (汎用ゲートモデルを利用する場合)"
+
+#: ../../source/getting_started.rst:13
+msgid "Install"
+msgstr "インストール"
+
+#: ../../source/getting_started.rst:19
+msgid "or"
+msgstr "または"
+
+#: ../../source/getting_started.rst:27
+msgid "Ising Model"
+msgstr "イジングモデル"
+
+#: ../../source/getting_started.rst:30 ../../source/getting_started.rst:73
+msgid "Example"
+msgstr "コード例"
+
+#: ../../source/getting_started.rst:41
+msgid "Parameters"
+msgstr "パラメーター"
+
+#: ../../source/getting_started.rst:43
+msgid "Some parameters for simualtion is adjustable"
+msgstr "いくつかのパラメーターは調整可能です。"
+
+#: ../../source/getting_started.rst:57
+msgid "Energy Function"
+msgstr "エネルギー関数"
+
+#: ../../source/getting_started.rst:59
+msgid "Energy function of the calculation is stored in attribute E as an array."
+msgstr "エネルギーの変遷は変数Eに配列で格納されています。"
+
+#: ../../source/getting_started.rst:70
+msgid "Universal Gate Model"
+msgstr "汎用ゲートモデル"
+
+#: ../../source/getting_started.rst:75
+msgid ""
+"It is convertible to the universal gate model pauli operator for qaoa "
+"simulations"
+msgstr "QAOAを実行するための汎用ゲートモデルのPauli演算子に変換することができます。"
+
+#: ../../source/getting_started.rst:82
+msgid ""
+"With blueqat, you can easily simulate combinatorial optimization problem "
+"on Universal Gate Model link:Blueqat"
+msgstr "Blueqatを使うと汎用ゲートモデル上で、組み合わせ最適化問題のシミュレーションを実行することができます。"
+

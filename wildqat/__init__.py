@@ -1,7 +1,14 @@
+"""
+Wildqat is an open source Python framework for QUBO.
+"""
+
 import numpy as np
-import matplotlib.pyplot as plt
 
 def pauli(qubo):
+	"""
+	Convert to pauli operators of universal gate model.
+	Requires blueqat.
+	"""
 	from blueqat.pauli import qubo_bit
 	h = 0.0
 	assert all(len(q) == len(qubo) for q in qubo)
@@ -26,6 +33,31 @@ def Ei_sqa(q, J, T, P, G):
 	return E
 
 def sel(selN,selK,selarr=[]):
+	"""
+	Automatically create QUBO which select K qubits from N qubits
+
+	.. code-block:: python
+
+		print(wq.sel(5,2))
+		#=>
+		[[-3  2  2  2  2]
+		[ 0 -3  2  2  2]
+		[ 0  0 -3  2  2]
+		[ 0  0  0 -3  2]
+		[ 0  0  0  0 -3]]
+		
+	if you set array on the 3rd params, the result likely to choose the nth qubit in the array
+
+	.. code-block:: python
+
+		print(wq.sel(5,2,[0,2]))
+		#=>
+		[[-3.5  2.   2.   2.   2. ]
+		[ 0.  -3.   2.   2.   2. ]
+		[ 0.   0.  -3.5  2.   2. ]
+		[ 0.   0.   0.  -3.   2. ]
+		[ 0.   0.   0.   0.  -3. ]]
+	"""
 	selres = np.diag([1-2*selK]*selN)+np.triu([[2] * selN for i in range(selN)],k=1)
 	selmat = np.zeros(selN)
 	for i in range(len(selarr)):
@@ -40,6 +72,20 @@ def sqr(sqrA):
 	return np.triu(np.outer(sqrA,sqrA))+np.triu(np.outer(sqrA,sqrA),k=1)
 
 def net(narr,nnet):
+	"""
+	Automatically create QUBO which has value 1 for all connectivity defined by array of edges and graph size N
+
+	.. code-block:: python
+
+		print(wq.net([[0,1],[1,2]],4))
+		#=>
+		[[0. 1. 0. 0.]
+		[0. 0. 1. 0.]
+		[0. 0. 0. 0.]
+		[0. 0. 0. 0.]]
+
+	this create 4*4 QUBO and put value 1 on connection between 0th and 1st qubit, 1st and 2nd qubit
+	"""
 	mat = np.zeros((nnet,nnet))
 	for i in range(len(narr)):
 		narr[i] = np.sort(narr[i])
@@ -47,26 +93,61 @@ def net(narr,nnet):
 	return mat
 
 def diag(diag_ele):
+	"""
+	Create QUBO with diag from list
+
+	.. code-block:: python
+
+		print(wq.diag([1,2,1]))
+		#=>
+		[[1 0 0]
+		[0 2 0]
+		[0 0 1]]
+	"""
 	return np.diag(diag_ele)
 
 def zeros(zeros_ele):
+	"""
+	Create QUBO with all element value as 0
+
+	.. code-block:: python
+
+		print(wq.zeros(3))
+		#=>
+		[[0. 0. 0.]
+		[0. 0. 0.]
+		[0. 0. 0.]]
+	"""
 	return np.zeros((zeros_ele,zeros_ele))
 
 class opt:
+	"""
+	Optimizer for SA/SQA.
+	"""
+
 	def __init__(self):
+		#: Initial temperature [SA]
 		self.Ts = 5
+		#: Final temperature [SA]. Temperature [SQA]
 		self.Tf = 0.02
 
+		#: Initial strength of transverse magnetic field. [SQA]
 		self.Gs = 10
+		#: Final strength of transverse magnetic field. [SQA]
 		self.Gf = 0.02
+		#: Trotter slices [SQA]
 		self.tro = 8
 
+		#: Descreasing rate of temperature [SA]
 		self.R = 0.95
+		#: Iterations [SA]
 		self.ite = 1000
+		#: QUBO
 		self.qubo = []
 		self.J = []
 
 		self.ep = 0
+		#: List of energies
 		self.E = []
 
 	def reJ(self):
@@ -100,11 +181,18 @@ class opt:
 		self.J = np.triu(self.J)
 
 	def plot(self):
+		"""
+		Draws energy chart using matplotlib.
+		"""
 		import matplotlib.pyplot as plt
 		plt.plot(self.E)
 		plt.show()
 
 	def sa(self):
+		"""
+		Run SA with provided QUBO. 
+		Set qubo attribute in advance of calling this method.
+		"""
 		T = self.Ts
 		if self.qubo != []:
 			self.qi()
@@ -128,6 +216,10 @@ class opt:
 		return qq
 
 	def sqa(self):
+		"""
+		Run SQA with provided QUBO.
+		Set qubo attribute in advance of calling this method.
+		"""
 		G = self.Gs
 		if self.qubo != []:
 			self.qi()

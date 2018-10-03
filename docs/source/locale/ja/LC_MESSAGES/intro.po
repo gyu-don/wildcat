@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, The Wildqat Developers
+# This file is distributed under the same license as the wildqat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wildqat \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-03 18:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/intro.rst:2
+msgid "Introducing Wildqat"
+msgstr "Wildqatの紹介"
+
+#: ../../source/intro.rst:4
+msgid ""
+"Wildqat is an open source Python framework for Quadratic Unconstrained "
+"Binary Optimization (QUBO). It is installable on your laptop so that you "
+"can quickly start solving Ising problems. Currently the SDK includes "
+"local solver for Simulated Annealing (SA) and Simulated Quantum Annealing"
+" (SQA), but we will provide cloud solvers soon."
+msgstr ""
+"Wildqatは制約なし二次形式二値変数最適化(QUBO)のためのオープンソースのPythonフレームワークです。 "
+"あなたのパソコンにインストールし、すぐに開発を始めることができます。 "
+"現在、SDKにはローカル環境で動作するシミュレーテッドアニーリング(SA)とシミュレーテッド量子アニーリング(SQA)のソルバーが組み込まれています。 "
+"今後はクラウドで動作するソルバーも提供される予定です。"
+
+#: ../../source/intro.rst:10
+msgid "What is Ising model"
+msgstr "イジングモデルとは"
+
+#: ../../source/intro.rst:12
+msgid ""
+"Real Quantum Annealing (QA) machines are built upon physical model called"
+" Ising model, which can be computationally simulated on our laptops with "
+"algorithms called Simulated Annealing (SA) or Simulated Quantum Annealing"
+" (SQA). 1-dimensional Ising model is a 1D array of quantum bits (qubits),"
+" each of them has a ‘spin’ of +1 (up) or -1 (down). 2-dimensional Ising "
+"model is similar, it consists of a plainer lattice and has more adjacent "
+"qubits than 1D. Although the complex physics may be overwhelming to you, "
+"Wildqat let you easily calculate the model without knowing much about "
+"them."
+msgstr ""
+"実際の量子アニーリング (QA) マシンはイジングモデルと呼ばれる物理モデルで構築されており、シミュレーテッドアニーリング (SA) またはシミュレーテッド量子アニーリング(SQA)と呼ばれるアルゴリズムをパソコン上でシミュレートすることが可能です。"
+" 一次元イジングモデルは量子ビット(qubits)の一次元配列であり、それぞれが+1 (up) か-1 (down) のスピンを持ちます。 "
+"二次元イジングモデルも同様に平面格子から成り、一次元イジングモデルよりも多くの隣接量子ビットを持ちます。 "
+"これらの物理は複雑なので圧倒されるかもしれませんが、Wildqatはそれらの知識が無くとも簡単にモデルの計算を行うことができます。 "
+
+#: ../../source/intro.rst:20
+msgid "Combinatorial Optimization problem and SA"
+msgstr "組合せ最適化問題とシミュレーテッドアニーリング"
+
+#: ../../source/intro.rst:22
+msgid ""
+"Simulated Annealing (SA) can be used to solve combinatorial optimization "
+"problems of some forms, and Ising model is one of them. Metropolis "
+"sampling based Monte-Carlo methods are used in such procedures."
+msgstr ""
+"シミュレーテッドアニーリング(SA)はいくつかの形式の組合せ最適化問題を解くのに用いられます。 イジングモデルはそのうちの一つです。 "
+"そのような問題を解く手順の中で、モンテカルロ法に基づいたメトロポリスサンプリングが使用されます。 "
+
+#: ../../source/intro.rst:27
+msgid "Hamiltonian"
+msgstr "ハミルトニアン"
+
+#: ../../source/intro.rst:29
+msgid ""
+"To solve Ising model with SA, we have to set Jij/hi which describes how "
+"strong a pair of qubits are coupled, and how strong a qubit is biased, "
+"respectively."
+msgstr ""
+"SAを用いてイジングモデルを解くために、Jij/hiを設定しなければなりません。 "
+"これらは、量子ビットのペアがどれほど強く相互作用しているか、一つの量子ビットにどれほどの磁場がかかっているかをそれぞれ表しています。 "
+
+#: ../../source/intro.rst:33
+msgid "Simulated Annealing and Simulated Quantum Annealing"
+msgstr "シミュレーテッドアニーリングとシミュレーテッド量子アニーリング"
+
+#: ../../source/intro.rst:35
+msgid ""
+"We also have algorithm called Simulated Quantum Annealing(SQA) to solve "
+"Ising problems, in which quantum effects are taken into account. The "
+"effect of quantum superposition is approximated by the parallel execution"
+" of different world-line, by which we can effectively simulate wilder "
+"quantum nature. Technically, path-integral methods based on Suzuki-"
+"Trotter matrix decomposition are used in the algorithm."
+msgstr ""
+"イジング問題を解くためのシミュレーテッド量子アニーリング(SQA)と呼ばれるアルゴリズムもあります。 "
+"この手法では量子効果を考慮に入れています。量子重ね合わせ効果は異なる世界線での並列実行によって近似され、より自然に近い量子の性質を効率的にシミュレートすることが可能です。"
+" 技術的には、鈴木-トロッタ分解に基づく経路積分法が使用されています。 "
+
+#: ../../source/intro.rst:42
+msgid "QUBO"
+msgstr ""
+
+#: ../../source/intro.rst:44
+msgid ""
+"Ising model problems are represented by Quadratic Unconstrained Binary "
+"Optimization (QUBO) problems. Although variables in combinatorial "
+"optimization problems are of {0, 1}, quantum spins above are represented "
+"by {-1, 1}, so we have to transform their representation. Wildqat can "
+"automatically handle them, so you do not have to know about {-1, 1} "
+"things."
+msgstr ""
+"イジングモデルの問題は二次非制約二項最適化問題(QUBO)によって表現されます。 組み合わせ最適化問題では変数は{0, "
+"1}で表しますが、上述の量子スピンは{-1, 1}によって表現されるので、表現を変換しなければなりません。 "
+"Wildqatは自動的にそれらの変換を行うため、みなさんがその変換について知っている必要はありません。 "
+
+#: ../../source/intro.rst:48
+msgid "For more details, see :doc:`beginners/qubo`."
+msgstr "QUBOについては :doc:`beginners/qubo` に詳しい説明があります。"
+
+#: ../../source/intro.rst:52
+msgid "Checking and Verifying solutions"
+msgstr "解の確認と検証"
+
+#: ../../source/intro.rst:54
+msgid ""
+"We can calculate how good (or bad) a solution is by calculating ‘Energy’ "
+"of the solution, which can be done by a Wildqat one-liner. Repeatedly "
+"solving Ising model, comparing that energy may let you know which is the "
+"best, or better answer to the problem. If the problem is of NP, then "
+"checking whether the constraints are fulfilled can also be calculated in "
+"polynomial time."
+msgstr ""
+"解の「エネルギー」を計算することで解の良し悪しを割り出すことができ、Wildqatではこれを一行(のプログラム)で実行可能です。 "
+"繰り返しイジングモデルを解いた後、エネルギーを比較してどれがその問題にとって最良またはより良い解であるかを知ることが可能です。 "
+"もしNP問題なら、制約が満たされているかどうかを確認することで多項式時間で計算することも可能です。 "
+
+
