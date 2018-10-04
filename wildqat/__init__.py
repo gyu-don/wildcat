@@ -150,6 +150,10 @@ class opt:
 		#: List of energies
 		self.E = []
 
+		self.dwaveendpoint = 'https://cloud.dwavesys.com/sapi'
+		self.dwavetoken = ''
+		self.dwavesolver = 'DW_2000Q_2'
+
 	def reJ(self):
         	return np.triu(self.J) + np.triu(self.J, k=1).T
 
@@ -247,3 +251,15 @@ class opt:
 			G *= self.R
 		qq = [int((i+1)/2) for i in q]
 		return qq
+
+	def dwave(self):
+		from dwave.cloud import Client
+		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
+
+		linear = {index: np.random.choice([-1, 1]) for index in solver.nodes}
+		quad = {key: np.random.choice([-1, 1]) for key in solver.undirected_edges}
+
+		computation = solver.sample_ising(linear, quad, num_reads=100)
+
+		return computation.samples[0]
+
