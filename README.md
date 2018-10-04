@@ -137,6 +137,14 @@ print(wq.diag([1,2,1]))
  [0 0 1]]
 ```
 
+Document
+----------
+English
+https://wildqat.readthedocs.io/en/latest/
+
+日本語
+https://wildqat.readthedocs.io/ja/latest/
+
 Tutorial
 ----------
 English  
