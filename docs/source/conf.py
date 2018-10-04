@@ -161,3 +161,7 @@ texinfo_documents = [
 # -- Extension configuration -------------------------------------------------
 locale_dirs = ['locale/']
 autodoc_member_order = 'groupwise'
+
+def setup(app):
+    app.add_stylesheet('custom.css')
+    app.add_javascript('custom.js')
