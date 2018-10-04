@@ -139,10 +139,10 @@ print(wq.diag([1,2,1]))
 
 Document
 ----------
-English
+English  
 https://wildqat.readthedocs.io/en/latest/
 
-日本語
+日本語  
 https://wildqat.readthedocs.io/ja/latest/
 
 Tutorial
