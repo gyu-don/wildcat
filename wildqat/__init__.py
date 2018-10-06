@@ -256,8 +256,14 @@ class opt:
 		from dwave.cloud import Client
 		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
 
-		linear = {index: np.random.choice([-1, 1]) for index in solver.nodes}
-		quad = {key: np.random.choice([-1, 1]) for key in solver.undirected_edges}
+		harr = [-1,1,-1,1,-1,1]
+		larr = []
+		for i in solver.nodes:
+			if i < len(harr):
+				larr.append(harr[i])
+		linear = {index: larr[index] for index in range(len(larr))}
+		#quad = {key: np.random.choice([-1, 1]) for key in solver.undirected_edges}
+		quad = {}
 
 		computation = solver.sample_ising(linear, quad, num_reads=100)
 
