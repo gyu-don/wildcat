@@ -9,17 +9,17 @@ MENU
 2.<a href="tutorial002_one_plus_one_en.ipynb">1+1</a>  
 3.<a href="tutorial003_numberpartitioning_en.ipynb">Number Partitioning</a>  
 4.<a href="tutorial004_BIL_en.ipynb">Binary Integer Linear Programming</a>  
-5.Clique Cover  
+5.<a href="tutorial005_clique_cover.ipynb">Clique Cover</a>  
 6.<a href="tutorial006_cliques_en.ipynb">Cliques</a>  
-7.Exact Cover  
+7.<a href="tutorial007_exact_cover.ipynb">Exact Cover</a>  
 8.<a href="tutorial008_graph_coloring_en.ipynb">Graph Coloring</a>  
 9.<a href="tutorial009_graph_partitioning_en.ipynb">Graph Partitioning</a>  
 10.Job Sequencing With Integer Lengths  
-11.Knapsack with Integer Weights  
-13.Set Cover  
-14.Set Packing  
+11.<a href="tutorial011_knapsack_with_integer_weights_en.ipynb">Knapsack with Integer Weights</a>  
+13.<a href="tutorial013_set_cover.ipynb">Set Cover</a>  
+14.<a href="tutorial014_set_packing.ipynb">Set Packing</a>  
 15.<a href="tutorial015_travelling_salesman_en.ipynb">Travelling Salesman</a>  
-16.Vertex Cover  
+16.<a href="tutorial016_vertex_cover.ipynb">Vertex Cover</a>  
 17.<a href="tutorial017_traffic_flow_optimization_en.ipynb">Traficflow Optimization</a>  
 18.<a href="tutorial018_boolean_reduction_en.ipynb">Boolean Reduction</a>  
 19.<a href="tutorial019_portfolio_optimization_en.ipynb">Portofolio Optimization</a>  
