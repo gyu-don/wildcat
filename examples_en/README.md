@@ -27,3 +27,4 @@ MENU
 22.<a href="tutorial022_maxcut_en.ipynb">MAXCUT</a>  
 23.<a href="tutorial023_weak_strong_cluster_en.ipynb">Weak Strong Cluster Problem</a>  
 24.<a href="tutorial024_protein_foldings_en.ipynb">Protein Foldings</a>  
+25.<a href="tutorial025_QUBO_to_Pauli_en.ipynb">QUBO to Pauli</a>
