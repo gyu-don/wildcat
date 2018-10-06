@@ -256,6 +256,8 @@ class opt:
 		from dwave.cloud import Client
 		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
 
+		if self.qubo != []:
+			self.qi()
 		harr = [-1,1,-1,1,-1,1]
 		larr = []
 		for i in solver.nodes:
