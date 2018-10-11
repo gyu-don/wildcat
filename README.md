@@ -1,3 +1,5 @@
+![wildqat](MDR_Wildqat.png)
+
 Wildqat Python SDK
 --------
 Python Framework for QUBO 
