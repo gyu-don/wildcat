@@ -216,7 +216,7 @@ class opt:
 					q[x] *= -1
 			self.E.append(Ei(q,self.J)+self.ep)
 			T *= self.R
-		qq = [int((i+1)/2) for i in q]
+		qq = (np.asarray(q, int) + 1) / 2
 		return qq
 
 	def sqa(self):
