@@ -28,7 +28,7 @@ def Ei(q3,j3):
 def Ei_sqa(q, J, T, P, G):
 	E = 0
 	for p in range(P):
-		E += Ei(q[p], J)
+		E += Ei(q[p], J) / P
 		E += T / 2 * np.log(1 / np.tanh(G / T / P)) * np.sum(q[p,:] * q[(p+1+P) % P, :])
 	return E
 
@@ -216,7 +216,7 @@ class opt:
 					q[x] *= -1
 			self.E.append(Ei(q,self.J)+self.ep)
 			T *= self.R
-		qq = [int((i+1)/2) for i in q]
+		qq = (np.asarray(q, int) + 1) / 2
 		return qq
 
 	def sqa(self):
@@ -230,7 +230,7 @@ class opt:
 		J = self.reJ()
 		N = len(J)
 		q = np.random.choice([-1,1], self.tro*N).reshape(self.tro, N)
-		self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G))
+		self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G) + self.ep)
 		while G>self.Gf:
 			for _ in range(self.ite):
 				x = np.random.randint(N)
@@ -247,7 +247,7 @@ class opt:
 
 				if dE < 0 or np.exp(-dE/self.Tf) > np.random.random_sample():
 					q[y][x] *= -1
-			self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G))
+			self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G)+self.ep)
 			G *= self.R
 		qq = [int((i+1)/2) for i in q]
 		return qq
