@@ -14,7 +14,7 @@ MENU
 7.<a href="tutorial007_exact_cover.ipynb">Exact Cover</a>  
 8.<a href="tutorial008_graph_coloring_en.ipynb">Graph Coloring</a>  
 9.<a href="tutorial009_graph_partitioning_en.ipynb">Graph Partitioning</a>  
-10.Job Sequencing With Integer Lengths  
+10.<a href="tutorial010_job_sequencing_with_integer_lengths_en.ipynb">Job Sequencing With Integer Lengths</a>  
 11.<a href="tutorial011_knapsack_with_integer_weights_en.ipynb">Knapsack with Integer Weights</a>  
 13.<a href="tutorial013_set_cover.ipynb">Set Cover</a>  
 14.<a href="tutorial014_set_packing.ipynb">Set Packing</a>  
