@@ -86,10 +86,10 @@ Direct connection to D-Wave machine with apitoken
 from wildqat import *
 a = opt()
 a.dwavetoken = "YOUR TOKEN HERE"
-a.qubo = [[0,0,0,0,1],[0,0,0,0,1],[0,0,0,0,1],[0,0,0,0,1],[0,0,0,0,0]]
+a.qubo = [[0,0,0,0,-4],[0,2,0,0,-4],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,4]] 
 a.dw()
 
-# =>
+# => [1,1,-1,1,1,0,0,0,0,0,0]
 ```
 
 
