@@ -81,7 +81,7 @@ print(result.most_common(5))
 
 Connection to D-Wave cloud
 -------
-Direct connection to D-Wave machine with apitoken
+Direct connection to D-Wave machine with apitoken  
 https://github.com/dwavesystems/dwave-cloud-client is required
 ```python
 from wildqat import *
