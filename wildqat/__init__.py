@@ -152,7 +152,7 @@ class opt:
 
 		self.dwaveendpoint = 'https://cloud.dwavesys.com/sapi'
 		self.dwavetoken = ''
-		self.dwavesolver = 'DW_2000Q_2'
+		self.dwavesolver = 'DW_2000Q_2_1'
 
 	def reJ(self):
         	return np.triu(self.J) + np.triu(self.J, k=1).T
@@ -252,22 +252,31 @@ class opt:
 		qq = [int((i+1)/2) for i in q]
 		return qq
 
-	def dwave(self):
+	def dw(self):
 		from dwave.cloud import Client
 		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
 
 		if self.qubo != []:
 			self.qi()
-		harr = [-1,1,-1,1,-1,1]
+
+		# for hi
+		harr = np.diag(self.J)
 		larr = []
 		for i in solver.nodes:
 			if i < len(harr):
 				larr.append(harr[i])
 		linear = {index: larr[index] for index in range(len(larr))}
-		#quad = {key: np.random.choice([-1, 1]) for key in solver.undirected_edges}
-		quad = {}
 
-		computation = solver.sample_ising(linear, quad, num_reads=100)
+		# for jij
+		qarr = []
+		qarrv = []
+		for i in solver.undirected_edges:
+			if i[0] < len(harr) and i[1] < len(harr):
+				qarr.append(i)
+				qarrv.append(self.J[i[0]][i[1]])
+
+		quad = {key: j for key,j in zip(qarr,qarrv)}
+		computation = solver.sample_ising(linear, quad, num_reads=1)
 
 		return computation.samples[0]
 
