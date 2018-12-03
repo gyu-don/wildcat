@@ -253,6 +253,7 @@ class opt:
 		return qq
 
 	def dw(self):
+		# pip install dwave-cloud-client
 		from dwave.cloud import Client
 		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
 
@@ -278,5 +279,5 @@ class opt:
 		quad = {key: j for key,j in zip(qarr,qarrv)}
 		computation = solver.sample_ising(linear, quad, num_reads=1)
 
-		return computation.samples[0]
+		return computation.samples[0][:len(harr)]
 
