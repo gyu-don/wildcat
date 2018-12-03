@@ -253,8 +253,10 @@ class opt:
 		return qq
 
 	def dw(self):
-		# pip install dwave-cloud-client
-		from dwave.cloud import Client
+		try:
+			from dwave.cloud import Client
+		except ImportError:
+			raise ImportError("dw() requires dwave-cloud-client. Please install before call this function.")
 		solver = Client.from_config(endpoint= self.dwaveendpoint, token=self.dwavetoken, solver=self.dwavesolver).get_solver()
 
 		if self.qubo != []:
