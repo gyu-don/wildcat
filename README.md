@@ -41,9 +41,6 @@ Some parameters for simualtion is adjustable
 a.Ts  = 10    #default 5
 a.R   = 0.99  #default 0.95
 a.ite = 10000 #default 1000
-
-#for sqa
-a.Gs  = 100   #default 10
 ```
 
 Energy Function
