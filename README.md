@@ -56,19 +56,13 @@ a.plot()
 
 Universal Gate Model Operator
 -------
-It is convertible to the universal gate model pauli operator for qaoa simulations
-```python
-pauli(sel(2,1))
-# => -0.5*I + 0.5*Z[0]*Z[1]
-```
-
 With blueqat, you can easily simulate combinatorial optimization problem on Universal Gate Model
 link:<a href="https://github.com/mdrft/Blueqat">Blueqat</a>
 ```python
 from wildqat import *
 from blueqat import vqe
 
-qubo = pauli(sel(4,1))
+qubo = pauli(sel(4,1)) # =>  0.5*Z[0]*Z[1] + 1.0*I - Z[2] - Z[0] + 0.5*Z[0]*Z[2] - Z[3] + 0.5*Z[0]*Z[3] - Z[1] + 0.5*Z[1]*Z[2] + 0.5*Z[1]*Z[3] + 0.5*Z[2]*Z[3]
 step = 4
 result = vqe.Vqe(vqe.QaoaAnsatz(qubo,step)).run()
 print(result.most_common(5))
