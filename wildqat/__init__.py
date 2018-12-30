@@ -230,6 +230,10 @@ class opt:
 			self.E.append(EE)
 			qtemp = (np.asarray(q,int)+1)/2
 			qq.append([int(s) for s in qtemp])
+			if shots == 1:
+				qq = qq[0]
+		if shots == 1:
+			self.E = self.E[0]
 		return qq
 
 	def sqa(self):
