@@ -54,6 +54,28 @@ print(a.E[0][-1]) #=>[0.0]
 a.plot()
 ```
 
+Sampling
+-------
+Sampling and counter function with number of shots.
+```python
+
+result = a.sa(shots=100)
+
+print(result)
+
+[[0, 1, 0],
+ [0, 0, 1],
+ [0, 1, 0],
+ [0, 0, 1],
+ [0, 1, 0],
+ ...
+ 
+ counter(result)
+ 
+ Counter({'001': 37, '010': 25, '100': 38})
+
+```
+
 Universal Gate Model Operator
 -------
 With blueqat, you can easily simulate combinatorial optimization problem on Universal Gate Model
