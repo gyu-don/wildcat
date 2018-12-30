@@ -6,7 +6,7 @@ Python Framework for QUBO
 
 Version
 --------
-1.1.333
+1.1.4
 
 Install
 --------------------
@@ -30,7 +30,7 @@ from wildqat import *
 a = opt()
 a.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
 a.sa() #=> [1, 1, 1]
-print(a.E[-1]) #=>[0.0]
+print(a.E[0][-1]) #=>[0.0]
 ```
 
 Parameters
@@ -48,7 +48,7 @@ Energy Function
 Energy function of the calculation is stored in attribute E as an array.
 ```python
 
-print(a.E[-1]) #=>[0.0]
+print(a.E[0][-1]) #=>[0.0]
 
 #if you want to check the time evolution
 a.plot()
