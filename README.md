@@ -6,7 +6,7 @@ Python Framework for QUBO
 
 Version
 --------
-1.1.5
+1.1.6
 
 Install
 --------------------
@@ -162,6 +162,26 @@ print(diag([1,2,1]))
 [[1 0 0]
  [0 2 0]
  [0 0 1]]
+```
+
+rands(N)
+Create QUBO with random number  
+```python
+print(rands(2))
+#=>
+[[0.89903411 0.68839641]
+ [0.         0.28554602]]
+```
+
+dbms(list,weight)
+Create QUBO on DBM or RBM model
+```python
+print(dbms([2,2]))
+#=>
+[[0.60181446 0.         0.41019491 0.17743251]
+ [0.         0.61166332 0.87964297 0.46509678]
+ [0.         0.         0.29579843 0.        ]
+ [0.         0.         0.         0.96743087]]
 ```
 
 Document
