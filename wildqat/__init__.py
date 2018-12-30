@@ -92,6 +92,13 @@ def net(narr,nnet):
 		mat[narr[i][0]][narr[i][1]] = 1
 	return mat
 
+def counter(narr):
+	import collections
+	dis = []
+	for i in range(len(narr)):
+		dis.append(''.join([str(x) for x in narr[i]]))
+	return collections.Counter(dis)
+
 def diag(diag_ele):
 	"""
 	Create QUBO with diag from list
@@ -189,34 +196,40 @@ class opt:
 		Draws energy chart using matplotlib.
 		"""
 		import matplotlib.pyplot as plt
-		plt.plot(self.E)
+		plt.plot(self.E[0])
 		plt.show()
 
-	def sa(self):
+	def sa(self,shots=1):
 		"""
 		Run SA with provided QUBO. 
 		Set qubo attribute in advance of calling this method.
 		"""
-		T = self.Ts
 		if self.qubo != []:
 			self.qi()
 		J = self.reJ()
 		N = len(J)
-		q = np.random.choice([-1,1],N)
-		self.E = []
-		self.E.append(Ei(q,self.J)+self.ep)
-		while T>self.Tf:
-			x_list = np.random.randint(0, N, self.ite)
-			for x in x_list:
-				q2 = np.ones(N)*q[x]
-				q2[x] = 1
-				dE = -2*sum(q*q2*J[:,x])
 
-				if dE < 0 or np.exp(-dE/T) > np.random.random_sample():
-					q[x] *= -1
-			self.E.append(Ei(q,self.J)+self.ep)
-			T *= self.R
-		qq = (np.asarray(q, int) + 1) / 2
+		self.E = []
+		qq = []
+		for i in range(shots):
+			T = self.Ts
+			q = np.random.choice([-1,1],N)
+			EE = []
+			EE.append(Ei(q,self.J)+self.ep)
+			while T>self.Tf:
+				x_list = np.random.randint(0, N, self.ite)
+				for x in x_list:
+					q2 = np.ones(N)*q[x]
+					q2[x] = 1
+					dE = -2*sum(q*q2*J[:,x])
+
+					if dE < 0 or np.exp(-dE/T) > np.random.random_sample():
+						q[x] *= -1
+				EE.append(Ei(q,self.J)+self.ep)
+				T *= self.R
+			self.E.append(EE)
+			qtemp = (np.asarray(q,int)+1)/2
+			qq.append([int(s) for s in qtemp])
 		return qq
 
 	def sqa(self):
