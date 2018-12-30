@@ -70,9 +70,7 @@ print(result)
  [0, 1, 0],
  ...
  
- counter(result)
- 
- Counter({'001': 37, '010': 25, '100': 38})
+ counter(result) # => Counter({'001': 37, '010': 25, '100': 38})
 
 ```
 
