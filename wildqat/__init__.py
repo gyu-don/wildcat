@@ -127,6 +127,32 @@ def zeros(zeros_ele):
 	"""
 	return np.zeros((zeros_ele,zeros_ele))
 
+def rands(rands_ele):
+	"""
+	Create random QUBO
+	"""
+	return np.triu(np.random.rand(rands_ele,rands_ele))
+
+def dbms(dbms_arr,weight_init=0):
+	dbmN = np.sum(dbms_arr)
+	if weight_init == 0:
+		dbms_mat = np.diag(np.random.rand(dbmN))	
+	else:
+		dbms_mat = np.diag([0.5 for i in range(dbmN)])
+	cc = 0
+	for k in range(len(dbms_arr)-1):
+		for i in range(cc,cc+dbms_arr[k]):
+			for j in range(cc+dbms_arr[k],cc+dbms_arr[k]+dbms_arr[k+1]):
+				if weight_init == 0:
+					dbms_mat[i][j] = np.random.rand()
+				else:
+					dbms_mat[i][j] = weight_init
+		cc = cc + dbms_arr[k]
+	return dbms_mat
+
+def sigm(x):
+	return 1.0/(1.0+np.exp(-x))
+
 class opt:
 	"""
 	Optimizer for SA/SQA.
@@ -196,10 +222,10 @@ class opt:
 		Draws energy chart using matplotlib.
 		"""
 		import matplotlib.pyplot as plt
-		plt.plot(self.E[0])
+		plt.plot(self.E)
 		plt.show()
 
-	def sa(self,shots=1):
+	def run(self,shots=1,sampler="normal",targetT=0.02,verbose=False):
 		"""
 		Run SA with provided QUBO. 
 		Set qubo attribute in advance of calling this method.
@@ -209,6 +235,13 @@ class opt:
 		J = self.reJ()
 		N = len(J)
 
+		if sampler == "fast":
+			itetemp = 100
+			Rtemp = 0.75
+		else:
+			itetemp = self.ite
+			Rtemp = self.R
+
 		self.E = []
 		qq = []
 		for i in range(shots):
@@ -216,8 +249,8 @@ class opt:
 			q = np.random.choice([-1,1],N)
 			EE = []
 			EE.append(Ei(q,self.J)+self.ep)
-			while T>self.Tf:
-				x_list = np.random.randint(0, N, self.ite)
+			while T>targetT:
+				x_list = np.random.randint(0, N, itetemp)
 				for x in x_list:
 					q2 = np.ones(N)*q[x]
 					q2[x] = 1
@@ -226,15 +259,21 @@ class opt:
 					if dE < 0 or np.exp(-dE/T) > np.random.random_sample():
 						q[x] *= -1
 				EE.append(Ei(q,self.J)+self.ep)
-				T *= self.R
+				T *= Rtemp
 			self.E.append(EE)
 			qtemp = (np.asarray(q,int)+1)/2
 			qq.append([int(s) for s in qtemp])
+			if verbose == True:
+				print(i,':',[int(s) for s in qtemp])
 			if shots == 1:
 				qq = qq[0]
 		if shots == 1:
 			self.E = self.E[0]
 		return qq
+
+	def sa(self,shots=1):
+		sar = self.run(shots=shots)
+		return sar
 
 	def sqa(self):
 		"""
