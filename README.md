@@ -29,7 +29,7 @@ Example
 from wildqat import *
 a = opt()
 a.qubo = [[4,-4,-4],[0,4,-4],[0,0,4]]
-a.sa() #=> [1, 1, 1]
+a.run() #=> [1, 1, 1]
 print(a.E[-1]) #=>[0.0]
 ```
 
@@ -59,7 +59,7 @@ Sampling
 Sampling and counter function with number of shots.
 ```python
 
-result = a.sa(shots=100)
+result = a.run(shots=100,sampler="fast")
 
 print(result)
 
