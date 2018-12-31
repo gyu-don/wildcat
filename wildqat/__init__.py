@@ -380,7 +380,7 @@ class opt:
 					weight_qubo[i][j] += result[k][i]*result[k][j]
 		return bias_qubo + weight_qubo/shots
 
-	def rbm_fit(self,vdata,shots=100,alpha=0.9,epsilon=0.1,epoch=100,verbose=True):
+	def fit(self,vdata,shots=100,alpha=0.9,epsilon=0.1,epoch=100,verbose=True):
 		for i in range(epoch):
 			data_qubo = rbm_data_qubo(vdata,self.qubo)
 			model_qubo = self.rbm_model_qubo(shots=shots)
