@@ -153,6 +153,27 @@ def dbms(dbms_arr,weight_init=0):
 def sigm(x):
 	return 1.0/(1.0+np.exp(-x))
 
+def rbm_hmodel(vdata,dbms_mat1):
+	hmodel = []
+	vdataN = len(vdata)
+	dbmsN = len(dbms_mat1)
+	for i in range(vdataN,dbmsN):
+		hsum = dbms_mat1[i][i]
+		for j in range(vdataN):
+			hsum += dbms_mat1[j][i]*vdata[j]
+		hmodel.append(sigm(hsum))
+	return hmodel
+
+def rbm_data_qubo(vdata,dbms_mat1):
+	hdata = rbm_hmodel(vdata,dbms_mat1)
+	data_qubo = np.diag(vdata + hdata)
+	vdataN = len(vdata)
+	dbmsN = len(dbms_mat1)
+	for i in range(vdataN):
+		for j in range(vdataN,dbmsN):
+			data_qubo[i][j] = vdata[i]*hdata[j-vdataN]
+	return data_qubo
+
 class opt:
 	"""
 	Optimizer for SA/SQA.
@@ -186,6 +207,10 @@ class opt:
 		self.dwaveendpoint = 'https://cloud.dwavesys.com/sapi'
 		self.dwavetoken = ''
 		self.dwavesolver = 'DW_2000Q_2_1'
+
+		#: RBM Models
+		self.RBMvisible = 0
+		self.RBMhidden = 0
 
 	def reJ(self):
         	return np.triu(self.J) + np.triu(self.J, k=1).T
@@ -339,3 +364,26 @@ class opt:
 
 		return computation.samples[0][:len(harr)]
 
+	def setRBM(self,rbm_arr):
+		self.qubo = dbms(rbm_arr)
+		self.RBMvisible = rbm_arr[0]
+		self.RBMhidden = rbm_arr[1]
+
+	def rbm_model_qubo(self,shots=100):
+		result = self.run(shots=shots,sampler="fast")
+		bias = np.sum(result,axis=0)/shots
+		bias_qubo = np.diag(bias)
+		weight_qubo = zeros(len(bias))
+		for i in range(self.RBMvisible):
+			for j in range(self.RBMvisible,self.RBMvisible+self.RBMhidden):
+				for k in range(len(result)):
+					weight_qubo[i][j] += result[k][i]*result[k][j]
+		return bias_qubo + weight_qubo/shots
+
+	def rbm_fit(self,vdata,shots=100,alpha=0.9,epsilon=0.1,epoch=100,verbose=True):
+		for i in range(epoch):
+			data_qubo = rbm_data_qubo(vdata,self.qubo)
+			model_qubo = self.rbm_model_qubo(shots=shots)
+			self.qubo = np.asarray(self.qubo)*alpha + epsilon*(np.asarray(data_qubo)-np.asarray(model_qubo))
+			if verbose == True:
+				print("epoch",i,":",self.qubo)
