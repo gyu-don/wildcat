@@ -330,8 +330,8 @@ class opt:
 					q[y][x] *= -1
 			self.E.append(Ei_sqa(q, J, self.Tf, self.tro, G)+self.ep)
 			G *= self.R
-		qq = [int((i+1)/2) for i in q]
-		return qq
+		#qq = [int((i+1)/2) for i in q]
+		return q
 
 	def dw(self):
 		try:
@@ -369,8 +369,8 @@ class opt:
 		self.RBMvisible = rbm_arr[0]
 		self.RBMhidden = rbm_arr[1]
 
-	def rbm_model_qubo(self,shots=100):
-		result = self.run(shots=shots,sampler="fast")
+	def rbm_model_qubo(self,shots=100,targetT=0.02):
+		result = self.run(shots=shots,sampler="fast",targetT=targetT)
 		bias = np.sum(result,axis=0)/shots
 		bias_qubo = np.diag(bias)
 		weight_qubo = zeros(len(bias))
@@ -380,10 +380,12 @@ class opt:
 					weight_qubo[i][j] += result[k][i]*result[k][j]
 		return bias_qubo + weight_qubo/shots
 
-	def fit(self,vdata,shots=100,alpha=0.9,epsilon=0.1,epoch=100,verbose=True):
+	def fit(self,vdata,shots=100,targetT=0.02,alpha=0.9,epsilon=0.1,epoch=100,verbose=True):
 		for i in range(epoch):
-			data_qubo = rbm_data_qubo(vdata,self.qubo)
-			model_qubo = self.rbm_model_qubo(shots=shots)
+			x = np.random.randint(0,len(vdata))
+			vdata_in = [int((i-1)*(-1)) for i in vdata[x]]
+			data_qubo = rbm_data_qubo(vdata_in,self.qubo)
+			model_qubo = self.rbm_model_qubo(shots=shots,targetT=targetT)
 			self.qubo = np.asarray(self.qubo)*alpha + epsilon*(np.asarray(data_qubo)-np.asarray(model_qubo))
 			if verbose == True:
 				print("epoch",i,":",self.qubo)
